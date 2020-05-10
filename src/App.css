@@ -1,3 +1,7 @@
-.app {
-  background-color: grey;
+.app-background {
+  @apply bg-gray-200 min-h-screen;
+}
+
+.app-container {
+  @apply mx-auto bg-white min-h-screen;
 }

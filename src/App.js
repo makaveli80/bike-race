@@ -4,8 +4,10 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="app">
-      Classement VTT
+    <div className="app-background">
+      <div className="app-container container">
+        Classement VTT
+      </div>
     </div>
   );
 }
