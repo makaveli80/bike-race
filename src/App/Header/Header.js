@@ -4,9 +4,13 @@ import './Header.css';
 
 const Header = () => {
   return (
-    <div>
-      Header
-    </div>
+    <header className="header-background">
+      <nav className="header-container container">
+        <a href="" className="header-container_logo">
+          Classement VTT
+        </a>
+      </nav>
+    </header>
   );
 }
 

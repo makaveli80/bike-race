@@ -1,7 +1,10 @@
 .app-background {
-  @apply bg-gray-200 min-h-screen;
+  @apply min-h-screen;
+  @apply bg-gray-200;
 }
 
 .app-container {
-  @apply mx-auto bg-white min-h-screen;
+  @apply mx-auto;
+  @apply bg-white mt-4 rounded-lg;
+  @apply p-4;
 }

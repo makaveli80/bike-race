@@ -6,9 +6,10 @@ import Header from './Header/Header';
 const App = () => {
   return (
     <div className="app-background">
-      <div className="app-container container">
-        <Header/>
-      </div>
+      <Header/>
+      <section className="app-container container">
+        Join the Dark Side
+      </section>
     </div>
   );
 }

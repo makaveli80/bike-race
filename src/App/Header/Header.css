@@ -1,0 +1,11 @@
+.header-background {
+  @apply h-10 bg-gray-800 text-gray-100;
+}
+
+.header-container {
+  @apply mx-auto;
+}
+
+.header-container_logo {
+  @apply text-2xl;
+}
