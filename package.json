@@ -4,14 +4,14 @@
   "description": "Application aims to handle bike's races.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --open --mode development --config build-configuration/webpack.config.js",
+    "build": "webpack --mode production --config build-configuration/webpack.config.js"
   },
   "keywords": [
     "bike",
     "race",
     "react",
-    "redxu",
+    "redux",
     "tailwindcss"
   ],
   "author": "Thomas Briois",
