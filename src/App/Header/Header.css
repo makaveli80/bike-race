@@ -6,6 +6,6 @@
   @apply mx-auto;
 }
 
-.header-container_logo {
+.header-container__logo {
   @apply text-2xl;
 }
