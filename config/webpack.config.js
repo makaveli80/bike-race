@@ -1,7 +1,7 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const pathConfiguration = './build-configuration';
-const babelLoaderOptions = {configFile: `${pathConfiguration}/.babelrc.json`};
+const pathConfiguration = './config';
+const babelLoaderOptions = {configFile: `${pathConfiguration}/babel.config.json`};
 const postCssLoaderOptions = {config: { path: `${pathConfiguration}/postcss.config.js`}}
 
 module.exports = {
@@ -10,12 +10,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: /src/,
-        use: { loader: "babel-loader", options: babelLoaderOptions }
+        use: { loader: 'babel-loader', options: babelLoaderOptions }
       },
       {
         test: /\.html$/,
         include: /src/,
-        use: { loader: "html-loader" }
+        use: { loader: 'html-loader' }
       },
       {
         test: /\.css$/,
@@ -30,8 +30,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html'
     })
   ]
 };

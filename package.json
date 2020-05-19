@@ -4,8 +4,9 @@
   "description": "Application aims to handle bike's races.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --config build-configuration/webpack.config.js",
-    "build": "webpack --mode production --config build-configuration/webpack.config.js"
+    "start": "webpack-dev-server --open --mode development --config config/webpack.config.js",
+    "test": "jest --config config/jest.config.js",
+    "build": "webpack --mode production --config config/webpack.config.js"
   },
   "keywords": [
     "bike",
@@ -28,10 +29,12 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "autoprefixer": "^9.7.6",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.0.1",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
