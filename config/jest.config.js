@@ -6,6 +6,7 @@ module.exports = {
     '\\.css$': '<rootDir>/config/jest/mockCssImportFile.js'
   },
   rootDir: '../',
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.js'],
   testMatch: ['**/src/**/*.test.js'],
   transform: {'\\.js$': ['babel-jest', babelJestOptions]},
   transformIgnorePatterns: [ '/node_modules/' ]
