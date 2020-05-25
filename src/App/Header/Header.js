@@ -4,9 +4,9 @@ import './Header.css';
 
 const Header = () => {
   return (
-    <header className="header-background">
-      <nav className="header-container container">
-        <a href="" className="header-container__logo">
+    <header className="header-outer">
+      <nav className="header container">
+        <a href="" className="header__logo">
           Classement VTT
         </a>
       </nav>

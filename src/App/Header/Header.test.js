@@ -15,6 +15,6 @@ describe('<Header/>', () => {
   });
 
   it('should contain one Logo', () => {
-    expect(shallowComponent.find('.header-container__logo')).toHaveLength(1);
+    expect(shallowComponent.find('.header__logo')).toHaveLength(1);
   });
 });

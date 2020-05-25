@@ -5,9 +5,9 @@ import Header from './Header/Header';
 
 const App = () => {
   return (
-    <div className="app-background">
+    <div className="app-outer">
       <Header/>
-      <section className="app-container container">
+      <section className="app container">
         Join the Dark Side
       </section>
     </div>
