@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { racersReducer } from './Racers/Racers.reducer';
 
 const reducers = combineReducers({
-  form: formReducer
+  form: formReducer,
+  racers: racersReducer
 });
 
 export default createStore(
