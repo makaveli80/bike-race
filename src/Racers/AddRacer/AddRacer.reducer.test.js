@@ -7,12 +7,12 @@ import {
   addRacerReduce
 } from './AddRacer.reducer';
 
+import validateRacer from './validateRacer';
+jest.mock('./validateRacer');
+
 const EMPTY_RACERS = [];
 const FILLED_RACERS = [{ firstName: 'Corentin', lastName: 'Bachelet' }];
 const NEW_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const EMPTY_RACER = {};
-const RACER_WITHOUT_FIRSTNAME = { lastName: 'Briois' };
-const RACER_WITHOUT_LASTNAME = { firstName: 'Jean-Luc' };
 
 describe('addRacer', () => {
   it('should return an "add racer" action', () => {
@@ -45,47 +45,27 @@ describe('addRacerValidationMiddleware', () => {
     expect(fakeNext).toHaveBeenCalledWith(action);
   });
 
-  it('should dispatch an "ADD_RACER_ERROR" type action when racer empty', () => {
+  it('should dispatch an "ADD_RACER_ERROR" type action when racer invalid', () => {
     // given
-    const action = { type: ADD_RACER, payload: EMPTY_RACER };
+    const action = { type: ADD_RACER, payload: NEW_RACER };
+    validateRacer.mockReturnValue({name: 'ValidationError'});
     // when
     addRacerValidationMiddleware(fakeStore)(fakeNext)(action);
     // then
-    expectAddRacerErrorDispatched();
-  });
-
-  it('should dispatch an "ADD_RACER_ERROR" type action when racer wihtout first name', () => {
-    // given
-    const action = { type: ADD_RACER, payload: RACER_WITHOUT_FIRSTNAME };
-    // when
-    addRacerValidationMiddleware(fakeStore)(fakeNext)(action);
-    // then
-    expectAddRacerErrorDispatched();
-  });
-
-  it('should dispatch an "ADD_RACER_ERROR" type action when racer wihtout last name', () => {
-    // given
-    const action = { type: ADD_RACER, payload: RACER_WITHOUT_LASTNAME };
-    // when
-    addRacerValidationMiddleware(fakeStore)(fakeNext)(action);
-    // then
-    expectAddRacerErrorDispatched();
+    expect(fakeStore.dispatch).toHaveBeenCalledWith(
+      expect.objectContaining({ type: ADD_RACER_ERROR })
+    );
   });
 
   it('should pass through when racer valid', () => {
     // given
     const action = { type: ADD_RACER, payload: NEW_RACER };
+    validateRacer.mockReturnValue();
     // when
     addRacerValidationMiddleware(fakeStore)(fakeNext)(action);
     // then
     expect(fakeNext).toHaveBeenCalledWith(action);
   });
-
-  const expectAddRacerErrorDispatched = () => {
-    expect(fakeStore.dispatch).toHaveBeenCalledWith(
-      expect.objectContaining({ type: ADD_RACER_ERROR })
-    );
-  }
 });
 
 

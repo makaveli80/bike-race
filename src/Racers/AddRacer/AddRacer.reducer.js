@@ -1,3 +1,5 @@
+import validateRacer from './validateRacer';
+
 export const ADD_RACER = 'ADD_RACER';
 export const ADD_RACER_ERROR = 'ADD_RACER_ERROR';
 
@@ -14,24 +16,11 @@ export const addRacerValidationMiddleware = ({ dispatch }) => next => action => 
     return next(action);
   }
 
-  const errors = validateRacer(action.payload);
-  return errors.length > 0
-    ? dispatch(addRacerError(errors))
+  const error = validateRacer(action.payload);
+  return error
+    ? dispatch(addRacerError(error))
     : next(action);
 };
-
-const validateRacer = (racer) => {
-  const errors = [];
-
-  if (!racer.firstName) {
-    errors.push("Prénom du coureur obligatoire")
-  }
-  if (!racer.lastName) {
-    errors.push("Nom du coureur obligatoire")
-  }
-
-  return errors;
-}
 
 export const addRacerReduce = (racers, racer) => {
   return [...racers, racer];
