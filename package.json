@@ -8,7 +8,9 @@
     "test": "jest --config config/jest.config.js",
     "test:watch": "jest --watch --config config/jest.config.js",
     "test:coverage": "jest --coverage --config config/jest.config.js",
-    "build": "webpack --mode production --config config/webpack.config.js"
+    "build": "webpack --mode production --config config/webpack.config.js",
+    "storybook": "start-storybook -p 6006 --config-dir config/storybook",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "bike",
@@ -31,6 +33,10 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "@storybook/addon-actions": "^6.0.5",
+    "@storybook/addon-links": "^6.0.5",
+    "@storybook/addons": "^6.0.5",
+    "@storybook/react": "^6.0.5",
     "autoprefixer": "^9.7.6",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
