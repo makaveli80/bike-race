@@ -1,0 +1,33 @@
+.input {
+  @apply mb-6;
+}
+
+.input__label {
+  @apply block;
+  @apply text-gray-700 text-lg font-bold;
+  @apply mb-2;
+}
+
+.input__field {
+  @apply appearance-none border rounded-md w-full;
+  @apply text-gray-700;
+  @apply py-2 px-3;
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+}
+
+.button {
+  @apply bg-blue-500 rounded-md;
+  @apply text-white font-bold;
+  @apply py-2 px-8;
+
+  &:hover {
+    @apply bg-blue-700;
+  }
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+}
