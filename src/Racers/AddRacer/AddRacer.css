@@ -18,6 +18,11 @@
   }
 }
 
+.input__error {
+  @apply h-6;
+  @apply text-sm font-medium text-red-500;
+}
+
 .button {
   @apply bg-blue-500 rounded-md;
   @apply text-white font-bold;
@@ -29,5 +34,10 @@
 
   &:focus {
     @apply outline-none shadow-outline;
+  }
+
+  &:disabled {
+    @apply bg-blue-200;
+    @apply cursor-not-allowed;
   }
 }

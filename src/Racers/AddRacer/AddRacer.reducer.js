@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 import validateRacer from './validateRacer';
 
 export const ADD_RACER = 'ADD_RACER';
@@ -17,9 +19,9 @@ export const addRacerValidationMiddleware = ({ dispatch }) => next => action => 
   }
 
   const error = validateRacer(action.payload);
-  return error
-    ? dispatch(addRacerError(error))
-    : next(action);
+  return _.isEmpty(error)
+    ? next(action)
+    : dispatch(addRacerError(error));
 };
 
 export const addRacerReduce = (racers, racer) => {
