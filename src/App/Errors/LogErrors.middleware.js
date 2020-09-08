@@ -1,7 +1,7 @@
-import { ADD_RACER_ERROR } from '../../Racers/AddRacer/AddRacer.reducer';
+import { VALIDATE_RACER_ERROR } from '../../Racers/ValidateRacer/ValidateRacer.middleware';
 
 export const logErrorsMiddleware = ({ dispatch }) => next => action => {
-  if (action.type === ADD_RACER_ERROR) {
+  if (action.type === VALIDATE_RACER_ERROR) {
     console.warn(action.payload);
   }
 

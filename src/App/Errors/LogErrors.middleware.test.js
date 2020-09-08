@@ -1,5 +1,5 @@
 import {logErrorsMiddleware} from './LogErrors.middleware';
-import { ADD_RACER_ERROR } from '../../Racers/AddRacer/AddRacer.reducer';
+import { VALIDATE_RACER_ERROR } from '../../Racers/ValidateRacer/ValidateRacer.middleware';
 
 const FAKE_ACTION = { type: "FAKE_TYPE" };
 const FAKE_ADD_RACER_ERROR = { type: ADD_RACER_ERROR, payload: 'Error' };
