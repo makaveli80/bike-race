@@ -1,7 +1,7 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { racersReducer } from './Racers/Racers.reducer';
-import { addRacerValidationMiddleware } from './Racers/AddRacer/AddRacer.reducer';
+import { validateRacerMiddleware } from './Racers/ValidateRacer/validateRacer.middleware';
 import { logErrorsMiddleware } from './App/Errors/logErrors.middleware';
 
 const reducers = combineReducers({
@@ -12,7 +12,7 @@ const reducers = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middlewares = [
-  addRacerValidationMiddleware,
+  validateRacerMiddleware,
   logErrorsMiddleware
 ]
 

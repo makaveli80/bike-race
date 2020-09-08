@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
 
 import './AddRacer.css';
-import validateRacer from './validateRacer';
+import validateRacer from '../ValidateRacer/validateRacer';
 
 const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
   return (
