@@ -1,6 +1,6 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import { racersReducer } from './Racers/Racers.reducer';
+import { racersReducer } from './Racers/racers.reducer';
 import { validateRacerMiddleware } from './Racers/ValidateRacer/validateRacer.middleware';
 import { logErrorsMiddleware } from './App/Errors/logErrors.middleware';
 

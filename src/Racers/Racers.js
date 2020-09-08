@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
-import { addRacer } from './AddRacer/AddRacer.reducer';
+import { addRacer } from './AddRacer/addRacer.reducer';
 
 export const Racers = ({ addRacer, racers }) => {
   return (
