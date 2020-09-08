@@ -1,7 +1,7 @@
-import { VALIDATE_RACER_ERROR } from '../../Racers/ValidateRacer/validateRacer.middleware';
+const _ = require('lodash');
 
 export const logErrorsMiddleware = ({ dispatch }) => next => action => {
-  if (action.type === VALIDATE_RACER_ERROR) {
+  if (_.get(action, 'meta.logErrors')) {
     console.warn(action.payload);
   }
 

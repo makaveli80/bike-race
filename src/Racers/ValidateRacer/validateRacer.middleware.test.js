@@ -9,6 +9,8 @@ jest.mock('./validateRacer');
 const fakeStore = { dispatch: jest.fn() };
 const fakeNext = jest.fn();
 
+const FAKE_TYPE = 'FAKE_TYPE';
+const NEW_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const ACTION_TO_NOT_VALIDATE = { type: FAKE_TYPE };
 const ACTION_TO_VALIDATE = {
   type: FAKE_TYPE,
@@ -17,8 +19,6 @@ const ACTION_TO_VALIDATE = {
 };
 const RETURN_ERROR = {firstName: 'Le prénom est requis'};
 const RETURN_NO_ERROR = {};
-const FAKE_TYPE = 'FAKE_TYPE';
-const NEW_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
 
 describe('validateRacerError', () => {
   it('should return an "add racer error" action', () => {
@@ -27,7 +27,8 @@ describe('validateRacerError', () => {
     // then
     expect(action).toEqual({
       type: VALIDATE_RACER_ERROR,
-      payload: expect.anything()
+      payload: expect.anything(),
+      meta: { logErrors: true }
     });
   });
 });

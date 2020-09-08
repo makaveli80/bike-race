@@ -1,8 +1,13 @@
 import {logErrorsMiddleware} from './LogErrors.middleware';
-import { VALIDATE_RACER_ERROR } from '../../Racers/ValidateRacer/ValidateRacer.middleware';
 
-const FAKE_ACTION = { type: "FAKE_TYPE" };
-const FAKE_ADD_RACER_ERROR = { type: VALIDATE_RACER_ERROR, payload: 'Error' };
+const FAKE_TYPE = 'FAKE_TYPE';
+const ERROR = {firstName: 'Le prénom est requis'};
+const ACTION_NOT_TO_LOG = { type: FAKE_TYPE };
+const ACTION_TO_LOG = {
+  type: FAKE_TYPE,
+  payload: ERROR,
+  meta: { logErrors: true }
+};
 
 describe('logErrorsMiddleware', () => {
   const fakeStore = { dispatch: jest.fn() };
@@ -17,33 +22,31 @@ describe('logErrorsMiddleware', () => {
     consoleSpy.mockRestore();
   });
 
-  it('should pass through when not an "ERROR" type action', () => {
+  it('should pass through when not an action with meta "logErrors"', () => {
     // when
-    logErrorsMiddleware(fakeStore)(fakeNext)(FAKE_ACTION);
+    logErrorsMiddleware(fakeStore)(fakeNext)(ACTION_NOT_TO_LOG);
     // then
-    expect(fakeNext).toHaveBeenCalledWith(FAKE_ACTION);
+    expect(fakeNext).toHaveBeenCalledWith(ACTION_NOT_TO_LOG);
   });
 
-  it('should pass through when an "ADD_RACER_ERROR" type action', () => {
+  it('should pass through when an action with meta "logErrors"', () => {
     // when
-    logErrorsMiddleware(fakeStore)(fakeNext)(FAKE_ADD_RACER_ERROR);
+    logErrorsMiddleware(fakeStore)(fakeNext)(ACTION_TO_LOG);
     // then
-    expect(fakeNext).toHaveBeenCalledWith(FAKE_ADD_RACER_ERROR);
+    expect(fakeNext).toHaveBeenCalledWith(ACTION_TO_LOG);
   });
 
-  it('should not log when not an "ERROR" type action', () => {
+  it('should not log when not an action with meta "logErrors"', () => {
     // when
-    logErrorsMiddleware(fakeStore)(fakeNext)(FAKE_ACTION);
+    logErrorsMiddleware(fakeStore)(fakeNext)(ACTION_NOT_TO_LOG);
     // then
     expect(consoleSpy).toHaveBeenCalledTimes(0);
   });
 
-  it('should log when an "ADD_RACER_ERROR" type action', () => {
+  it('should log when an action with meta "logErrors"', () => {
     // when
-    logErrorsMiddleware(fakeStore)(fakeNext)(FAKE_ADD_RACER_ERROR);
+    logErrorsMiddleware(fakeStore)(fakeNext)(ACTION_TO_LOG);
     // then
-    expect(consoleSpy).toHaveBeenCalledWith('Error');
+    expect(consoleSpy).toHaveBeenCalledWith(ERROR);
   });
-
-
 });

@@ -5,7 +5,11 @@ import validateRacer from './validateRacer';
 export const VALIDATE_RACER_ERROR = 'VALIDATE_RACER_ERROR';
 
 export const validateRacerError = (errors) => {
-  return { type: VALIDATE_RACER_ERROR, payload: errors };
+  return {
+    type: VALIDATE_RACER_ERROR,
+    payload: errors,
+    meta: { logErrors: true }
+  };
 }
 
 export const validateRacerMiddleware = ({ dispatch }) => next => action => {
@@ -16,6 +20,5 @@ export const validateRacerMiddleware = ({ dispatch }) => next => action => {
       : dispatch(validateRacerError(error));
 
   }
-
   return next(action);
 };
