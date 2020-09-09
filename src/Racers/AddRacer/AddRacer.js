@@ -4,14 +4,14 @@ import { Field, reduxForm, reset } from 'redux-form';
 import './AddRacer.css';
 import validateRacer from '../ValidateRacer/validateRacer';
 
-const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
+export const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="input">
         <label htmlFor="firstName" className="input__label">
           Prénom
         </label>
-        <Field id="firstName" name="firstName" component={renderInputTextField}
+        <Field id="firstName" name="firstName" component={InputTextField}
             placeholder="Jean-Luc"/>
       </div>
 
@@ -19,7 +19,7 @@ const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
         <label htmlFor="lastName" className="input__label">
           Nom
         </label>
-        <Field id="lastName" name="lastName" component={renderInputTextField}
+        <Field id="lastName" name="lastName" component={InputTextField}
             placeholder="Briois"/>
       </div>
 
@@ -31,7 +31,7 @@ const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
   )
 }
 
-const renderInputTextField = ({ input, id, placeholder, meta: { touched, error }}) => {
+export const InputTextField = ({ input, id, placeholder, meta: { touched, error }}) => {
   return (
     <div>
       <input {...input} id={id} type="text" placeholder={placeholder}
@@ -43,7 +43,7 @@ const renderInputTextField = ({ input, id, placeholder, meta: { touched, error }
   );
 }
 
-const onSubmitSuccess = (result, dispatch) => dispatch(reset('addRacer'));
+export const onSubmitSuccess = (result, dispatch) => dispatch(reset('addRacer'));
 
 export default reduxForm({
   form: 'addRacer',

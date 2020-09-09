@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Racers } from './Racers';
+import { Racers, mapStateToProps } from './Racers';
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 
@@ -58,4 +58,20 @@ describe('<Racers/>', () => {
     expect(racersProps).toBeDefined();
     expect(racersProps.length).toBe(2);
   })
+});
+
+describe('"mapStateToProps" property for "redux"', () => {
+  const RACERS = [
+    { firstName: 'Jean-Luc', lastName: 'Briois' },
+    { firstName: 'Corentin', lastName: 'Bachelet' }
+  ];
+
+  it('should map "racers" from state', () => {
+    // given
+    const state = { racers: RACERS };
+    // when
+    const props = mapStateToProps(state);
+    // then
+    expect(props.racers).toBe(RACERS);
+  });
 });

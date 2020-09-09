@@ -14,7 +14,7 @@ export const Racers = ({ addRacer, racers }) => {
   );
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     racers: state.racers
   }
