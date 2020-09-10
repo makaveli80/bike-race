@@ -1,11 +1,21 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { racersReducer } from './Racers/racers.reducer';
+import { validateRacerMiddleware } from './Racers/ValidateRacer/validateRacer.middleware';
+import { logErrorsMiddleware } from './App/Errors/logErrors.middleware';
 
 const reducers = combineReducers({
-  form: formReducer
+  form: formReducer,
+  racers: racersReducer
 });
 
-export default createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const middlewares = [
+  validateRacerMiddleware,
+  logErrorsMiddleware
+]
+
+export default createStore(reducers,composeEnhancers(
+  applyMiddleware(...middlewares)
+));

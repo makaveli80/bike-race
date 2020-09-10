@@ -7,7 +7,10 @@
     "start": "webpack-dev-server --open --mode development --config config/webpack.config.js",
     "test": "jest --config config/jest.config.js",
     "test:watch": "jest --watch --config config/jest.config.js",
-    "build": "webpack --mode production --config config/webpack.config.js"
+    "test:coverage": "jest --coverage --config config/jest.config.js",
+    "build": "webpack --mode production --config config/webpack.config.js",
+    "storybook": "start-storybook -p 6006 --config-dir config/storybook",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "bike",
@@ -19,6 +22,8 @@
   "author": "Thomas Briois",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -29,6 +34,10 @@
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
+    "@storybook/addon-actions": "^6.0.5",
+    "@storybook/addon-links": "^6.0.5",
+    "@storybook/addons": "^6.0.5",
+    "@storybook/react": "^6.0.5",
     "autoprefixer": "^9.7.6",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
@@ -39,6 +48,7 @@
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.0.1",
     "postcss-loader": "^3.0.0",
+    "postcss-nesting": "^7.0.1",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.4.6",
     "webpack": "^4.43.0",
