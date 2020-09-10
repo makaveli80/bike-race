@@ -21,7 +21,7 @@ const RETURN_ERROR = {firstName: 'Le prénom est requis'};
 const RETURN_NO_ERROR = {};
 
 describe('validateRacerError', () => {
-  it('should return an "add racer error" action', () => {
+  it('should return an "validate racer error" action', () => {
     // when
     const action = validateRacerError(['Erreur']);
     // then
@@ -41,7 +41,7 @@ describe('validateRacerMiddleware', () => {
     expect(fakeNext).toHaveBeenCalledWith(ACTION_TO_NOT_VALIDATE);
   });
 
-  it('should dispatch an "ADD_RACER_ERROR" type action when racer invalid', () => {
+  it('should dispatch an "VALIDATE_RACER_ERROR" type action when racer invalid', () => {
     // given
     validateRacer.mockReturnValue(RETURN_ERROR);
     // when
