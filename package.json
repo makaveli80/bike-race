@@ -9,8 +9,7 @@
     "test:watch": "jest --watch --config config/jest.config.js",
     "test:coverage": "jest --coverage --config config/jest.config.js",
     "build": "webpack --mode production --config config/webpack.config.js",
-    "storybook": "start-storybook -p 6006 --config-dir config/storybook",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 --config-dir config/storybook"
   },
   "keywords": [
     "bike",
