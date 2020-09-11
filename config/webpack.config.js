@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const pathConfiguration = './config';
 const babelLoaderOptions = {configFile: `${pathConfiguration}/babel.config.json`};
@@ -21,7 +22,7 @@ module.exports = {
         test: /\.css$/,
         include: /src/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           { loader: 'postcss-loader', options: postCssLoaderOptions}
         ]
@@ -32,6 +33,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 };
