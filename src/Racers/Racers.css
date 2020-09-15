@@ -1,0 +1,11 @@
+.racers {
+  @apply flex flex-row;
+}
+
+.racers__add-racer {
+  @apply w-1/3;
+}
+
+.racers__list-racers {
+  @apply w-2/3;
+}
