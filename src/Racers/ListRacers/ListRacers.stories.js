@@ -5,9 +5,10 @@ import ListRacers from './ListRacers';
 
 const RACERS = [
   { firstName: 'Jean-Luc', lastName: 'Briois' },
-  { firstName: 'Corentin', lastName: 'Bachelet' }
+  { firstName: 'Corentin', lastName: 'Bachelet' },
+  { firstName: 'Baillet', lastName: 'Alexandre' }
 ];
 
 storiesOf('ListRacers', module)
-  .add('vide', () => <ListRacers/>)
-  .add('normal', () => <ListRacers racers={RACERS}/>);
+  .add('0 racer', () => <ListRacers/>)
+  .add('3 racers', () => <ListRacers racers={RACERS}/>);
