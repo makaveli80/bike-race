@@ -11,14 +11,14 @@ const DEFAULT_RACERS_FILTER = {
 const ListRacers = ({
   racers = DEFAULT_RACERS,
   racersFilter = DEFAULT_RACERS_FILTER,
-  handleIncrementPageRacers,
-  handleDecrementPageRacers
+  onIncrementPageRacers,
+  onDecrementPageRacers
 }) => {
   return (
     <div>
       {displayHeader}
       {displayList(racers)}
-      {displayFooter(racers, racersFilter, handleIncrementPageRacers, handleDecrementPageRacers)}
+      {displayFooter(racers, racersFilter, onIncrementPageRacers, onDecrementPageRacers)}
     </div>
   );
 }
@@ -54,21 +54,21 @@ const displayNoRacer = (
   </div>
 );
 
-const displayFooter = (racers, racersFilter, handleIncrementPageRacers, handleDecrementPageRacers) => {
+const displayFooter = (racers, racersFilter, onIncrementPageRacers, onDecrementPageRacers) => {
   const nbRacers = racers.length;
   const { indexPage } = racersFilter;
   return (
     <div className="list-racers__footer">
       {nbRacers} coureurs
       <div className="page-navigation">
-        <button onClick={handleDecrementPageRacers}
+        <button onClick={onDecrementPageRacers}
           className="page-navigation__button">
           Page précedente
         </button>
         <span className="page-navigation__index-page">
           {indexPage}
         </span>
-        <button onClick={handleIncrementPageRacers}
+        <button onClick={onIncrementPageRacers}
           className="page-navigation__button">
           Page suivante
         </button>

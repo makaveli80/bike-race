@@ -5,15 +5,30 @@ import './Racers.css'
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import { addRacer } from './AddRacer/addRacer.reducer';
+import { getFilteredRacersSelector } from './racers.selector';
+import {
+  incrementPageRacers,
+  decrementPageRacers
+} from './ListRacers/selectPage.reducer';
 
-export const Racers = ({ addRacer, racers }) => {
+export const Racers = ({
+  addRacer,
+  racers,
+  racersFilter,
+  incrementPageRacers,
+  decrementPageRacers
+}) => {
   return (
     <div className="racers">
       <div className="racers__add-racer">
         <AddRacer onSubmit={(racer) => addRacer(racer)}/>
       </div>
       <div className="racers__list-racers">
-        <ListRacers racers={racers}/>
+        <ListRacers
+          racers={racers}
+          racersFilter={racersFilter}
+          onIncrementPageRacers={() => incrementPageRacers()}
+          onDecrementPageRacers={() => decrementPageRacers()}/>
       </div>
     </div>
   );
@@ -21,10 +36,13 @@ export const Racers = ({ addRacer, racers }) => {
 
 export const mapStateToProps = (state) => {
   return {
-    racers: state.racers
+    racers: getFilteredRacersSelector(state),
+    racersFilter: state.racersFilter
   }
 };
 
 export default connect(mapStateToProps, {
-  addRacer
+  addRacer,
+  incrementPageRacers,
+  decrementPageRacers
 })(Racers);
