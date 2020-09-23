@@ -3,15 +3,14 @@ import { shallow } from 'enzyme';
 
 import ListRacers from './ListRacers';
 
-const NO_RACERS = [];
-const RACERS = [
-  { firstName: 'Jean-Luc', lastName: 'Briois' },
-  { firstName: 'Corentin', lastName: 'Bachelet' }
-];
-const RACERS_FILTER = {
-  indexPage: 1,
-  racersPerPage: 5
-}
+const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
+const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
+const RACERS = [RACER_1, RACER_2];
+const RACERS_FILTER = { indexPage: 1, racersPerPage: 5 };
+const RACERS_STATS = { totalRacers: 2, totalPages: 1 };
+
+const EMPTY_RACERS = [];
+const EMPTY_RACERS_STATS = { totalRacers: 0, totalPages: 0 };
 
 describe('<ListRacers/>', () => {
   it('should render shallowly', () => {
@@ -21,11 +20,12 @@ describe('<ListRacers/>', () => {
     expect(shallowComponent).toBeDefined();
   });
 
-  it('should render shallowly when no racer', () => {
+  it('should render shallowly when an empty list of racers', () => {
     // given
     const props = {
-      racers: NO_RACERS,
+      racers: EMPTY_RACERS,
       racersFilter: RACERS_FILTER,
+      racersStats: EMPTY_RACERS_STATS,
       handleIncrementPageRacers: jest.fn(),
       handleDecrementPageRacers: jest.fn()
     };
@@ -40,6 +40,7 @@ describe('<ListRacers/>', () => {
     const props = {
       racers: RACERS,
       racersFilter: RACERS_FILTER,
+      racersStats: RACERS_STATS,
       handleIncrementPageRacers: jest.fn(),
       handleDecrementPageRacers: jest.fn()
     };
