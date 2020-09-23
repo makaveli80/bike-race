@@ -10,11 +10,13 @@ import {
   incrementPageRacers,
   decrementPageRacers
 } from './ListRacers/selectPage.reducer';
+import { getRacersStatsSelector } from './racersStats.selector';
 
 export const Racers = ({
   addRacer,
   racers,
   racersFilter,
+  racersStats,
   incrementPageRacers,
   decrementPageRacers
 }) => {
@@ -27,6 +29,7 @@ export const Racers = ({
         <ListRacers
           racers={racers}
           racersFilter={racersFilter}
+          racersStats={racersStats}
           onIncrementPageRacers={() => incrementPageRacers()}
           onDecrementPageRacers={() => decrementPageRacers()}/>
       </div>
@@ -37,7 +40,8 @@ export const Racers = ({
 export const mapStateToProps = (state) => {
   return {
     racers: getFilteredRacersSelector(state),
-    racersFilter: state.racersFilter
+    racersFilter: state.racersFilter,
+    racersStats: getRacersStatsSelector(state)
   }
 };
 

@@ -11,9 +11,6 @@ const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
 const RACERS = [RACER_1, RACER_2, RACER_3];
 const RACERS_FILTER = { indexPage: 1, racersPerPage: 2 };
 
-const MAPPED_RACERS = [RACER_1, RACER_2];
-const MAPPED_RACERS_FILTER = RACERS_FILTER;
-
 describe('"mapStateToProps" property for "redux"', () => {
   const state = { racers: RACERS, racersFilter: RACERS_FILTER };
 
@@ -33,7 +30,19 @@ describe('"mapStateToProps" property for "redux"', () => {
     expect(props.racersFilter.indexPage).toBe(1);
     expect(props.racersFilter.racersPerPage).toBe(2);
   });
+
+  it('should map "racersStats" from state', () => {
+    // when
+    const props = mapStateToProps(state);
+    // then
+    expect(props.racersStats.totalRacers).toBe(3);
+    expect(props.racersStats.totalPages).toBe(2);
+  });
 });
+
+const MAPPED_RACERS = [RACER_1, RACER_2];
+const MAPPED_RACERS_FILTER = RACERS_FILTER;
+const MAPPED_RACERS_STATS = { totalRacers: 3, totalPages: 2 };
 
 describe('<Racers/>', () => {
   let shallowComponent;
@@ -50,6 +59,7 @@ describe('<Racers/>', () => {
       addRacer,
       racers: MAPPED_RACERS,
       racersFilter: MAPPED_RACERS_FILTER,
+      racersStats: MAPPED_RACERS_STATS,
       incrementPageRacers,
       decrementPageRacers
     }
@@ -94,7 +104,7 @@ describe('<Racers/>', () => {
     const racersFilterProps = shallowComponent.find(ListRacers).first().prop('racersFilter');
     // then
     expect(racersFilterProps).toBeDefined();
-  })
+  });
 
   it('should launch an "incrementPageRacers" action when a incrementPageRacers event launched from component <ListRacers>', () => {
     // when
@@ -108,5 +118,12 @@ describe('<Racers/>', () => {
     shallowComponent.find(ListRacers).first().simulate('decrementPageRacers', {});
     // then
     expect(decrementPageRacers).toHaveBeenCalled();
+  });
+
+  it('should transmit "racersStats" props to <ListRacers> component', () => {
+    // when
+    const racersStatsProps = shallowComponent.find(ListRacers).first().prop('racersStats');
+    // then
+    expect(racersStatsProps).toBeDefined();
   });
 });
