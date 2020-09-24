@@ -9,5 +9,5 @@ export const addRacer = (racer) => {
 }
 
 export const addRacerReduce = (racers, racer) => {
-  return [...racers, racer];
+  return [racer, ...racers];
 }
