@@ -17,6 +17,9 @@ export const decrementPageRacers = () => {
 }
 
 export const decrementPageRacersReduce = (racersFilter) => {
+  if (racersFilter.indexPage === 1) {
+    return racersFilter
+  }
   return {
     ...racersFilter,
     indexPage: racersFilter.indexPage - 1

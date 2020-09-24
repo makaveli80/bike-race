@@ -8,6 +8,11 @@ import {
 } from './selectPage.reducer';
 
 const RACERS_FILTER = {
+  indexPage: 2,
+  racersPerPage: 5
+};
+
+const RACERS_FILTER_MINIMUM_INDEX = {
   indexPage: 1,
   racersPerPage: 5
 };
@@ -26,8 +31,8 @@ describe('incrementPageRacersReduce', () => {
     // when
     const racersFilterUpdated = incrementPageRacersReduce(RACERS_FILTER);
     // then
-    expect(racersFilterUpdated.indexPage).toBe(2);
-  })
+    expect(racersFilterUpdated.indexPage).toBe(3);
+  });
 });
 
 describe('decrementPageRacers', () => {
@@ -44,6 +49,13 @@ describe('decrementPageRacersReduce', () => {
     // when
     const racersFilterUpdated = decrementPageRacersReduce(RACERS_FILTER);
     // then
-    expect(racersFilterUpdated.indexPage).toBe(0);
+    expect(racersFilterUpdated.indexPage).toBe(1);
+  });
+
+  it('should not decrement current index when it is equal to 1', () => {
+    // when
+    const racersFilterUpdated = decrementPageRacersReduce(RACERS_FILTER_MINIMUM_INDEX);
+    // then
+    expect(racersFilterUpdated.indexPage).toBe(1);
   })
 });
