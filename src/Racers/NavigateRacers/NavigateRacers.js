@@ -2,23 +2,22 @@ import React from 'react';
 
 import './NavigateRacers.css';
 
-const DEFAULT_RACERS = [];
-const DEFAULT_RACERS_FILTER = { indexPage: 1, racersPerPage: 5 };
-const DEFAULT_RACERS_STATS = { totalRacers: 0, totalPages: 0 };
+const DEFAULT_RACERS_NAVIGATION = {
+  currentIndex: 1,
+  totalFilteredRacers: 0,
+  totalRacers: 0,
+  totalPages: 0
+};
 
 const NavigateRacers = ({
-  racers = DEFAULT_RACERS,
-  racersFilter = DEFAULT_RACERS_FILTER,
-  racersStats = DEFAULT_RACERS_STATS,
+  racersNavigation = DEFAULT_RACERS_NAVIGATION,
   onIncrementPageRacers,
   onDecrementPageRacers
 }) => {
-  const {indexPage} = racersFilter;
-  const {totalRacers, totalPages} = racersStats;
-  const nbRacers = racers.length;
+  const {currentIndex, totalFilteredRacers, totalRacers, totalPages} = racersNavigation;
   return (
     <div className="navigation-list-racers">
-      {nbRacers} coureurs (sur {totalRacers} coureurs)
+      {totalFilteredRacers} coureurs (sur {totalRacers} coureurs)
 
       <div className="navigation-list-racers__page-navigation">
         <button onClick={onDecrementPageRacers}
@@ -26,7 +25,7 @@ const NavigateRacers = ({
           Page précedente
         </button>
         <span className="page-navigation__index-page">
-          {indexPage} / {totalPages}
+          {currentIndex} / {totalPages}
         </span>
         <button onClick={onIncrementPageRacers}
           className="page-navigation__button">

@@ -19,35 +19,33 @@ const RACERS_FILTER = { indexPage: 1, racersPerPage: 2 };
 describe('"mapStateToProps" property for "redux"', () => {
   const state = { racers: RACERS, racersFilter: RACERS_FILTER };
 
-  it('should map filtered "racers" from state', () => {
+  it('should map "filteredRacers" from state', () => {
     // when
     const props = mapStateToProps(state);
     // then
-    expect(props.racers.length).toBe(2);
-    expect(props.racers).toContain(RACER_1);
-    expect(props.racers).toContain(RACER_2);
+    expect(props.filteredRacers.length).toBe(2);
+    expect(props.filteredRacers).toContain(RACER_1);
+    expect(props.filteredRacers).toContain(RACER_2);
   });
 
-  it('should map "racersFilter" from state', () => {
+  it('should map "racersNavigation" from state', () => {
     // when
     const props = mapStateToProps(state);
     // then
-    expect(props.racersFilter.indexPage).toBe(1);
-    expect(props.racersFilter.racersPerPage).toBe(2);
-  });
-
-  it('should map "racersStats" from state', () => {
-    // when
-    const props = mapStateToProps(state);
-    // then
-    expect(props.racersStats.totalRacers).toBe(3);
-    expect(props.racersStats.totalPages).toBe(2);
+    expect(props.racersNavigation.currentIndex).toBe(1);
+    expect(props.racersNavigation.totalFilteredRacers).toBe(2);
+    expect(props.racersNavigation.totalRacers).toBe(3);
+    expect(props.racersNavigation.totalPages).toBe(2);
   });
 });
 
-const MAPPED_RACERS = [RACER_1, RACER_2];
-const MAPPED_RACERS_FILTER = RACERS_FILTER;
-const MAPPED_RACERS_STATS = { totalRacers: 3, totalPages: 2 };
+const MAPPED_FILTERED_RACERS = [RACER_1, RACER_2];
+const MAPPED_RACERS_NAVIGATION = {
+  currentIndex: 1,
+  totalFilteredRacers: 2,
+  totalRacers: 3,
+  totalPages: 2
+};
 
 describe('<Racers/>', () => {
   let shallowComponent;
@@ -61,9 +59,8 @@ describe('<Racers/>', () => {
   beforeEach(() => {
     const props = {
       addRacer,
-      racers: MAPPED_RACERS,
-      racersFilter: MAPPED_RACERS_FILTER,
-      racersStats: MAPPED_RACERS_STATS,
+      filteredRacers: MAPPED_FILTERED_RACERS,
+      racersNavigation: MAPPED_RACERS_NAVIGATION,
       incrementPageRacers,
       decrementPageRacers
     }
@@ -98,7 +95,7 @@ describe('<Racers/>', () => {
   });
 
   describe('<ListRacers> interactions', () => {
-    it('should transmit "racers" props to <ListRacers> component', () => {
+    it('should transmit "filteredRacers" props to <ListRacers> component', () => {
       // when
       const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
       // then
@@ -115,19 +112,11 @@ describe('<Racers/>', () => {
   });
 
   describe('<NavigateRacers> interactions', () => {
-    it('should transmit "racers" props to <NavigateRacers> component', () => {
+    it('should transmit "racersNavigation" props to <NavigateRacers> component', () => {
       // when
-      const racersProps = shallowComponent.find(NavigateRacers).first().prop('racers');
+      const racersNavigationProps = shallowComponent.find(NavigateRacers).first().prop('racersNavigation');
       // then
-      expect(racersProps).toBeDefined();
-      expect(racersProps.length).toBe(2);
-    });
-
-    it('should transmit "racersFilter" props to <NavigateRacers> component', () => {
-      // when
-      const racersFilterProps = shallowComponent.find(NavigateRacers).first().prop('racersFilter');
-      // then
-      expect(racersFilterProps).toBeDefined();
+      expect(racersNavigationProps).toBeDefined();
     });
 
     it('should launch an "incrementPageRacers" action when a incrementPageRacers event launched from component <NavigateRacers>', () => {
@@ -142,13 +131,6 @@ describe('<Racers/>', () => {
       shallowComponent.find(NavigateRacers).first().simulate('decrementPageRacers', {});
       // then
       expect(decrementPageRacers).toHaveBeenCalled();
-    });
-
-    it('should transmit "racersStats" props to <NavigateRacers> component', () => {
-      // when
-      const racersStatsProps = shallowComponent.find(NavigateRacers).first().prop('racersStats');
-      // then
-      expect(racersStatsProps).toBeDefined();
     });
   });
 });

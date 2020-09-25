@@ -7,18 +7,17 @@ import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 
 import { addRacer } from './AddRacer/addRacer.reducer';
-import { getFilteredRacersSelector } from './racers.selector';
 import {
   incrementPageRacers,
   decrementPageRacers
 } from './ListRacers/selectPage.reducer';
-import { getRacersStatsSelector } from './racersStats.selector';
+import { getFilteredRacersSelector } from './racers.selector';
+import { getRacersNavigationSelector } from './racersNavigation.selector';
 
 export const Racers = ({
   addRacer,
-  racers,
-  racersFilter,
-  racersStats,
+  filteredRacers,
+  racersNavigation,
   incrementPageRacers,
   decrementPageRacers
 }) => {
@@ -28,11 +27,9 @@ export const Racers = ({
         <AddRacer onSubmit={(racer) => addRacer(racer)}/>
       </div>
       <div className="racers__list-racers">
-        <ListRacers racers={racers} />
+        <ListRacers racers={filteredRacers} />
         <NavigateRacers
-          racers={racers}
-          racersFilter={racersFilter}
-          racersStats={racersStats}
+          racersNavigation={racersNavigation}
           onIncrementPageRacers={() => incrementPageRacers()}
           onDecrementPageRacers={() => decrementPageRacers()}/>
       </div>
@@ -42,9 +39,8 @@ export const Racers = ({
 
 export const mapStateToProps = (state) => {
   return {
-    racers: getFilteredRacersSelector(state),
-    racersFilter: state.racersFilter,
-    racersStats: getRacersStatsSelector(state)
+    filteredRacers: getFilteredRacersSelector(state),
+    racersNavigation: getRacersNavigationSelector(state)
   }
 };
 
