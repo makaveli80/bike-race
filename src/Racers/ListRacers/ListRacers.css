@@ -18,28 +18,3 @@
   @apply border border-gray-400;
   @apply p-4;
 }
-
-.list-racers__footer {
-  @apply bg-gray-200;
-  @apply border-b border-r border-l border-gray-400;
-  @apply rounded-b-lg;
-  @apply p-4;
-}
-
-.page-navigation {
-  @apply float-right;
-}
-
-.page-navigation__button {
-  @apply bg-gray-400;
-  @apply rounded-md;
-  @apply mx-2 px-2 py-1;
-
-  &:hover {
-    @apply bg-gray-500;
-  }
-}
-
-.page-navigation__index-page {
-  @apply mx-2;
-}

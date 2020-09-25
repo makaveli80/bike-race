@@ -2,8 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { Racers, mapStateToProps } from './Racers';
+
 import AddRacer from './AddRacer/AddRacer';
+jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
 import ListRacers from './ListRacers/ListRacers';
+jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
+import NavigateRacers from './NavigateRacers/NavigateRacers';
+jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
 
 const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
@@ -51,8 +56,7 @@ describe('<Racers/>', () => {
   const addRacer = jest.fn();
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
-  jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
-  jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
+
 
   beforeEach(() => {
     const props = {
@@ -72,58 +76,79 @@ describe('<Racers/>', () => {
 
   it('should contain a <AddRacer> component', () => {
     // when
-    const addRacerComponent = shallowComponent.find(AddRacer).first();
+    const addRacerComponent = shallowComponent.find(AddRacer);
     // then
-    expect(addRacerComponent).toBeDefined();
+    expect(addRacerComponent.length).toBe(1);
   });
 
-  it('should launch an "addRacer" action when a submit event launched from component <AddRacer>', () => {
-    // when
-    shallowComponent.find(AddRacer).first().simulate('submit', {});
-    // then
-    expect(addRacer).toHaveBeenCalled();
+  describe('<AddRacer> interactions', () => {
+    it('should launch an "addRacer" action when a submit event launched from component <AddRacer>', () => {
+      // when
+      shallowComponent.find(AddRacer).first().simulate('submit', {});
+      // then
+      expect(addRacer).toHaveBeenCalled();
+    });
   });
 
   it('should contain a <ListRacers> component', () => {
     // when
     const listRacersComponent = shallowComponent.find(ListRacers).first();
     // then
-    expect(listRacersComponent).toBeDefined();
-  })
-
-  it('should transmit "racers" props to <ListRacers> component', () => {
-    // when
-    const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
-    // then
-    expect(racersProps).toBeDefined();
-    expect(racersProps.length).toBe(2);
-  })
-
-  it('should transmit "racersFilter" props to <ListRacers> component', () => {
-    // when
-    const racersFilterProps = shallowComponent.find(ListRacers).first().prop('racersFilter');
-    // then
-    expect(racersFilterProps).toBeDefined();
+    expect(listRacersComponent.length).toBe(1);
   });
 
-  it('should launch an "incrementPageRacers" action when a incrementPageRacers event launched from component <ListRacers>', () => {
-    // when
-    shallowComponent.find(ListRacers).first().simulate('incrementPageRacers', {});
-    // then
-    expect(incrementPageRacers).toHaveBeenCalled();
+  describe('<ListRacers> interactions', () => {
+    it('should transmit "racers" props to <ListRacers> component', () => {
+      // when
+      const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
+      // then
+      expect(racersProps).toBeDefined();
+      expect(racersProps.length).toBe(2);
+    });
   });
 
-  it('should launch an "decrementPageRacers" action when a decrementPageRacers event launched from component <ListRacers>', () => {
+  it('should contain a <NavigateRacers> component', () => {
     // when
-    shallowComponent.find(ListRacers).first().simulate('decrementPageRacers', {});
+    const NavigateRacersComponent = shallowComponent.find(NavigateRacers).first();
     // then
-    expect(decrementPageRacers).toHaveBeenCalled();
+    expect(NavigateRacersComponent.length).toBe(1);
   });
 
-  it('should transmit "racersStats" props to <ListRacers> component', () => {
-    // when
-    const racersStatsProps = shallowComponent.find(ListRacers).first().prop('racersStats');
-    // then
-    expect(racersStatsProps).toBeDefined();
+  describe('<NavigateRacers> interactions', () => {
+    it('should transmit "racers" props to <NavigateRacers> component', () => {
+      // when
+      const racersProps = shallowComponent.find(NavigateRacers).first().prop('racers');
+      // then
+      expect(racersProps).toBeDefined();
+      expect(racersProps.length).toBe(2);
+    });
+
+    it('should transmit "racersFilter" props to <NavigateRacers> component', () => {
+      // when
+      const racersFilterProps = shallowComponent.find(NavigateRacers).first().prop('racersFilter');
+      // then
+      expect(racersFilterProps).toBeDefined();
+    });
+
+    it('should launch an "incrementPageRacers" action when a incrementPageRacers event launched from component <NavigateRacers>', () => {
+      // when
+      shallowComponent.find(NavigateRacers).first().simulate('incrementPageRacers', {});
+      // then
+      expect(incrementPageRacers).toHaveBeenCalled();
+    });
+
+    it('should launch an "decrementPageRacers" action when a decrementPageRacers event launched from component <NavigateRacers>', () => {
+      // when
+      shallowComponent.find(NavigateRacers).first().simulate('decrementPageRacers', {});
+      // then
+      expect(decrementPageRacers).toHaveBeenCalled();
+    });
+
+    it('should transmit "racersStats" props to <NavigateRacers> component', () => {
+      // when
+      const racersStatsProps = shallowComponent.find(NavigateRacers).first().prop('racersStats');
+      // then
+      expect(racersStatsProps).toBeDefined();
+    });
   });
 });

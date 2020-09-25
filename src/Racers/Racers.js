@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import './Racers.css'
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
+import NavigateRacers from './NavigateRacers/NavigateRacers';
+
 import { addRacer } from './AddRacer/addRacer.reducer';
 import { getFilteredRacersSelector } from './racers.selector';
 import {
@@ -26,7 +28,8 @@ export const Racers = ({
         <AddRacer onSubmit={(racer) => addRacer(racer)}/>
       </div>
       <div className="racers__list-racers">
-        <ListRacers
+        <ListRacers racers={racers} />
+        <NavigateRacers
           racers={racers}
           racersFilter={racersFilter}
           racersStats={racersStats}
