@@ -9,24 +9,32 @@ const actions = {
   handleDecrementPageRacers: action('handleDecrementPageRacers')
 }
 
-const propsZeroRacer = {
-  racersNavigation: {
-    currentIndex: 1,
-    totalFilteredRacers: 0,
-    totalRacers: 0,
-    totalPages: 0
-  }
-}
+const RACERS_NAVIGATION_FIRST_PAGE = {
+  currentIndex: 1,
+  totalFilteredRacers: 3,
+  totalRacers: 7,
+  totalPages: 3
+};
 
-const propsThreeRacer = {
-  racersNavigation: {
-    currentIndex: 1,
-    totalFilteredRacers: 2,
-    totalRacers: 3,
-    totalPages: 2
-  }
-}
+const RACERS_NAVIGATION_MIDDLE_PAGE = {
+  currentIndex: 2,
+  totalFilteredRacers: 3,
+  totalRacers: 7,
+  totalPages: 3
+};
+
+const RACERS_NAVIGATION_LAST_PAGE = {
+  currentIndex: 3,
+  totalFilteredRacers: 3,
+  totalRacers: 7,
+  totalPages: 3
+};
+
+const propsFirstPage = { racersNavigation: RACERS_NAVIGATION_FIRST_PAGE };
+const propsMiddlePage = { racersNavigation: RACERS_NAVIGATION_MIDDLE_PAGE };
+const propsLastPage = { racersNavigation: RACERS_NAVIGATION_LAST_PAGE };
 
 storiesOf('NavigateRacers', module)
-  .add('0 racer', () => <NavigateRacers {...propsZeroRacer} {...actions}/>)
-  .add('3 racers', () => <NavigateRacers {...propsThreeRacer} {...actions}/>);
+  .add('first page', () => <NavigateRacers {...propsFirstPage} {...actions}/>)
+  .add('middle page', () => <NavigateRacers {...propsMiddlePage} {...actions}/>)
+  .add('last page', () => <NavigateRacers {...propsLastPage} {...actions}/>);

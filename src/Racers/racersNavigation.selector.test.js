@@ -44,6 +44,7 @@ describe('getRacersNavigationSelector', () => {
     const racersNavigation = getRacersNavigationSelector(
       { racers: RACERS_EMPTY, racersFilter: RACERS_FILTER });
     // then
+    expect(racersNavigation.currentIndex).toBe(0);
     expect(racersNavigation.totalFilteredRacers).toBe(0);
     expect(racersNavigation.totalRacers).toBe(0);
     expect(racersNavigation.totalPages).toBe(0);
