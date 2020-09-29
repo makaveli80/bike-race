@@ -1,4 +1,4 @@
-import {logErrorsMiddleware} from './LogErrors.middleware';
+import {logErrorsMiddleware} from './logErrors.middleware';
 
 const FAKE_TYPE = 'FAKE_TYPE';
 const ERROR = {firstName: 'Le prénom est requis'};
