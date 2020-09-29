@@ -18,7 +18,6 @@ export const validateRacerMiddleware = ({ dispatch }) => next => action => {
     return _.isEmpty(error)
       ? next(action)
       : dispatch(validateRacerError(error));
-
   }
   return next(action);
 };
