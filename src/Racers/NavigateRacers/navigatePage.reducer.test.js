@@ -5,7 +5,7 @@ import {
   DECREMENT_PAGE_RACERS,
   decrementPageRacers,
   decrementPageRacersReduce
-} from './selectPage.reducer';
+} from './navigatePage.reducer';
 
 const RACERS_FILTER = {
   indexPage: 2,

@@ -3,7 +3,7 @@ import {
   incrementPageRacersReduce,
   DECREMENT_PAGE_RACERS,
   decrementPageRacersReduce
-} from './ListRacers/selectPage.reducer';
+} from './NavigateRacers/navigatePage.reducer';
 
 const INITIAL_RACERS_FILTER = {
   indexPage: 1,

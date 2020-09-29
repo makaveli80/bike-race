@@ -10,7 +10,7 @@ import { addRacer } from './AddRacer/addRacer.reducer';
 import {
   incrementPageRacers,
   decrementPageRacers
-} from './ListRacers/selectPage.reducer';
+} from './NavigateRacers/navigatePage.reducer';
 import { getFilteredRacersSelector } from './racers.selector';
 import { getRacersNavigationSelector } from './racersNavigation.selector';
 
