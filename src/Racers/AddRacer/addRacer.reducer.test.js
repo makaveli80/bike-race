@@ -37,4 +37,12 @@ describe('addRacerReduce', () => {
     expect(racersUpdated.length).toBe(2);
     expect(racersUpdated).toContain(NEW_RACER);
   });
+
+  it('should add a new racer to the first place of the list', () => {
+    // when
+    const racersUpdated = addRacerReduce(FILLED_RACERS, NEW_RACER);
+    // then
+    const firstRacer = racersUpdated[0];
+    expect(firstRacer).toBe(NEW_RACER);
+  });
 });
