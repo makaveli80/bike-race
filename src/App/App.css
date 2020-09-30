@@ -1,9 +1,9 @@
-.app-outer {
+@block app-outer {
   @apply min-h-screen;
   @apply bg-gray-200;
 }
 
-.app {
+@block app {
   @apply mx-auto;
   @apply bg-white mt-4 rounded-lg;
   @apply p-4;

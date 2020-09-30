@@ -1,29 +1,29 @@
-.input {
+@block input-text {
   @apply mb-6;
-}
 
-.input__label {
-  @apply block;
-  @apply text-gray-700 text-lg font-bold;
-  @apply mb-2;
-}
+  @element label {
+    @apply block;
+    @apply text-gray-700 text-lg font-bold;
+    @apply mb-2;
+  }
 
-.input__field {
-  @apply appearance-none border rounded-md w-full;
-  @apply text-gray-700;
-  @apply py-2 px-3;
+  @element field {
+    @apply appearance-none border rounded-md w-full;
+    @apply text-gray-700;
+    @apply py-2 px-3;
 
-  &:focus {
-    @apply outline-none shadow-outline;
+    &:focus {
+      @apply outline-none shadow-outline;
+    }
+  }
+
+  @element error {
+    @apply h-6;
+    @apply text-sm font-medium text-red-500;
   }
 }
 
-.input__error {
-  @apply h-6;
-  @apply text-sm font-medium text-red-500;
-}
-
-.button {
+@block submit-button {
   @apply bg-blue-500 rounded-md;
   @apply text-white font-bold;
   @apply py-2 px-8;

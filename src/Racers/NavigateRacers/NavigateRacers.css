@@ -1,24 +1,24 @@
-.navigation-list-racers {
+@block navigation-list-racers {
   @apply bg-gray-200;
   @apply border-b border-r border-l border-gray-400;
   @apply rounded-b-lg;
   @apply p-4;
 }
 
-.page-navigation {
+@block page-navigation {
   @apply float-right;
-}
 
-.page-navigation__previous-page {
-  @extend %page-navigation__button;
-}
+  @element previous-page {
+    @extend %page-navigation__button;
+  }
 
-.page-navigation__index-page {
-  @apply mx-2;
-}
+  @element index-page {
+    @apply mx-2;
+  }
 
-.page-navigation__next-page {
-  @extend %page-navigation__button;
+  @element next-page {
+    @extend %page-navigation__button;
+  }
 }
 
 %page-navigation__button {
