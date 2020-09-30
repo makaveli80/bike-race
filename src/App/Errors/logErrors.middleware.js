@@ -1,9 +1,8 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
-export const logErrorsMiddleware = ({ dispatch }) => next => action => {
+export const logErrorsMiddleware = (store) => (next) => (action) => {
   if (_.get(action, 'meta.logErrors')) {
     console.warn(action.payload);
   }
-
   return next(action);
 };

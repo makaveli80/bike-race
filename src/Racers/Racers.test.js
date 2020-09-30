@@ -2,13 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { Racers, mapStateToProps } from './Racers';
-
 import AddRacer from './AddRacer/AddRacer';
-jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
 import ListRacers from './ListRacers/ListRacers';
-jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
 import NavigateRacers from './NavigateRacers/NavigateRacers';
-jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
 
 const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
@@ -23,7 +19,7 @@ describe('"mapStateToProps" property for "redux"', () => {
     // when
     const props = mapStateToProps(state);
     // then
-    expect(props.filteredRacers.length).toBe(2);
+    expect(props.filteredRacers).toHaveLength(2);
     expect(props.filteredRacers).toContain(RACER_1);
     expect(props.filteredRacers).toContain(RACER_2);
   });
@@ -51,19 +47,21 @@ describe('<Racers/>', () => {
   let shallowComponent;
 
   // mocks
+  jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
+  jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
+  jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
   const addRacer = jest.fn();
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
-
+  const props = {
+    addRacer,
+    incrementPageRacers,
+    decrementPageRacers,
+    filteredRacers: MAPPED_FILTERED_RACERS,
+    racersNavigation: MAPPED_RACERS_NAVIGATION
+  }
 
   beforeEach(() => {
-    const props = {
-      addRacer,
-      filteredRacers: MAPPED_FILTERED_RACERS,
-      racersNavigation: MAPPED_RACERS_NAVIGATION,
-      incrementPageRacers,
-      decrementPageRacers
-    }
     shallowComponent = shallow(<Racers {...props} />);
   });
 
@@ -75,7 +73,7 @@ describe('<Racers/>', () => {
     // when
     const addRacerComponent = shallowComponent.find(AddRacer);
     // then
-    expect(addRacerComponent.length).toBe(1);
+    expect(addRacerComponent).toHaveLength(1);
   });
 
   describe('<AddRacer> interactions', () => {
@@ -91,7 +89,7 @@ describe('<Racers/>', () => {
     // when
     const listRacersComponent = shallowComponent.find(ListRacers).first();
     // then
-    expect(listRacersComponent.length).toBe(1);
+    expect(listRacersComponent).toHaveLength(1);
   });
 
   describe('<ListRacers> interactions', () => {
@@ -100,7 +98,7 @@ describe('<Racers/>', () => {
       const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
       // then
       expect(racersProps).toBeDefined();
-      expect(racersProps.length).toBe(2);
+      expect(racersProps).toHaveLength(2);
     });
   });
 
@@ -108,7 +106,7 @@ describe('<Racers/>', () => {
     // when
     const NavigateRacersComponent = shallowComponent.find(NavigateRacers).first();
     // then
-    expect(NavigateRacersComponent.length).toBe(1);
+    expect(NavigateRacersComponent).toHaveLength(1);
   });
 
   describe('<NavigateRacers> interactions', () => {

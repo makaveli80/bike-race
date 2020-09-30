@@ -4,9 +4,7 @@ import './ListRacers.css';
 
 const DEFAULT_RACERS = [];
 
-const ListRacers = ({
-  racers = DEFAULT_RACERS
-}) => {
+const ListRacers = ({ racers = DEFAULT_RACERS }) => {
   return (
     <div>
       {displayHeader}

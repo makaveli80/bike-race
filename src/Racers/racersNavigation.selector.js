@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 import { getFilteredRacersSelector } from './racers.selector';
 
@@ -8,8 +8,8 @@ export const getRacersNavigationSelector = ({racers, racersFilter}) => {
   const totalPages = _.ceil(racers.length / racersFilter.racersPerPage);
   return {
     currentIndex,
+    totalPages,
     totalFilteredRacers: filteredRacers.length,
     totalRacers: racers.length,
-    totalPages
   }
 }

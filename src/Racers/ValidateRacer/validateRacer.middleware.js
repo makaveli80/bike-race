@@ -1,4 +1,4 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
 import validateRacer from './validateRacer';
 
@@ -18,7 +18,6 @@ export const validateRacerMiddleware = ({ dispatch }) => next => action => {
     return _.isEmpty(error)
       ? next(action)
       : dispatch(validateRacerError(error));
-
   }
   return next(action);
 };

@@ -31,6 +31,13 @@ describe('validateRacerError', () => {
       meta: { logErrors: true }
     });
   });
+
+  it('should contain a metadata "logErrors" in action', () => {
+    // when
+    const action = validateRacerError(['Erreur']);
+    // then
+    expect(action.meta.logErrors).toBeTruthy();
+  });
 });
 
 describe('validateRacerMiddleware', () => {

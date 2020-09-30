@@ -1,20 +1,22 @@
-.list-racers__header {
-  @apply bg-gray-200;
-  @apply border-t border-r border-l border-gray-400;
-  @apply rounded-t-lg;
-  @apply p-4;
-  @apply font-bold;
-}
+@block list-racers {
+  @element header {
+    @apply bg-gray-200;
+    @apply border-t border-r border-l border-gray-400;
+    @apply rounded-t-lg;
+    @apply p-4;
+    @apply font-bold;
+  }
 
-.list-racers__racers {
-  @apply border border-gray-400;
-}
+  @element racers {
+    @apply border border-gray-400;
+  }
 
-.list-racers__racer {
-  @apply p-4;
-}
+  @element racer {
+    @apply p-4;
+  }
 
-.list-racers__no-racer {
-  @apply border border-gray-400;
-  @apply p-4;
+  @element no-racer {
+    @apply border border-gray-400;
+    @apply p-4;
+  }
 }

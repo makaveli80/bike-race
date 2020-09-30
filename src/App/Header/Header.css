@@ -1,11 +1,11 @@
-.header-outer {
+@block header-outer {
   @apply h-10 bg-gray-800 text-gray-100;
 }
 
-.header {
+@block header {
   @apply mx-auto;
-}
 
-.header__logo {
-  @apply text-2xl;
+  @element logo {
+    @apply text-2xl;
+  }
 }
