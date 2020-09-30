@@ -1,5 +1,6 @@
+import _ from 'lodash';
+
 import validateRacer from './validateRacer';
-const _ = require('lodash');
 
 const EMPTY_RACER = {};
 const RACER_WITHOUT_FIRST_NAME = { lastName: 'Briois' };

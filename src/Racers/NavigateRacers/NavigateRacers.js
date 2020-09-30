@@ -10,9 +10,9 @@ const DEFAULT_RACERS_NAVIGATION = {
 };
 
 const NavigateRacers = ({
-  racersNavigation = DEFAULT_RACERS_NAVIGATION,
   onIncrementPageRacers,
-  onDecrementPageRacers
+  onDecrementPageRacers,
+  racersNavigation = DEFAULT_RACERS_NAVIGATION,
 }) => {
   const {currentIndex, totalFilteredRacers, totalRacers, totalPages} = racersNavigation;
   return (

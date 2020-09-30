@@ -1,5 +1,5 @@
-const Joi = require('@hapi/joi');
-const _ = require('lodash');
+import Joi from '@hapi/joi';
+import _ from 'lodash';
 
 const firstNameMessages = {
   'string.base': 'Le prénom doit être du texte',

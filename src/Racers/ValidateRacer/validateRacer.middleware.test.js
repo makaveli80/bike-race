@@ -32,7 +32,7 @@ describe('validateRacerError', () => {
     });
   });
 
-  it('should contain a meta "logErrors" in action', () => {
+  it('should contain a metadata "logErrors" in action', () => {
     // when
     const action = validateRacerError(['Erreur']);
     // then

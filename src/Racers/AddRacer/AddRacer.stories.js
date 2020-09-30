@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+
 import AddRacer from './AddRacer';
 
-const withReduxForm = (Story) => {
+const withReduxFormAndDevTools = (Story) => {
   const reducers = { form: formReducer };
   const reducer = combineReducers(reducers);
   const store = createStore(
@@ -31,5 +32,5 @@ const actions = {
 }
 
 storiesOf('AddRacer', module)
-  .addDecorator(withReduxForm)
+  .addDecorator(withReduxFormAndDevTools)
   .add('normal', () => <AddRacer {...actions}/>);

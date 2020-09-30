@@ -18,7 +18,7 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER });
     // then
-    expect(filteredRacers.length).toBe(2);
+    expect(filteredRacers).toHaveLength(2);
     expect(filteredRacers).toContain(RACER_1);
     expect(filteredRacers).toContain(RACER_2);
   });
@@ -28,7 +28,7 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER_LAST_PAGE });
     // then
-    expect(filteredRacers.length).toBe(1);
+    expect(filteredRacers).toHaveLength(1);
     expect(filteredRacers).toContain(RACER_3);
   });
 
@@ -37,7 +37,7 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS_EMPTY, racersFilter: RACERS_FILTER });
     // then
-    expect(filteredRacers.length).toBe(0);
+    expect(filteredRacers).toHaveLength(0);
   });
 
   it('should return an empty list when index of filter is too high', () => {
@@ -45,7 +45,7 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER_INDEX_TOO_HIGH });
     // then
-    expect(filteredRacers.length).toBe(0);
+    expect(filteredRacers).toHaveLength(0);
   });
 
   it('should return an empty list when index of filter is 0', () => {
@@ -53,7 +53,7 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER_INDEX_TOO_HIGH });
     // then
-    expect(filteredRacers.length).toBe(0);
+    expect(filteredRacers).toHaveLength(0);
   });
 
   it('should return an empty list when index of filter is negative', () => {
@@ -61,6 +61,6 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER_INDEX_TOO_LOW });
     // then
-    expect(filteredRacers.length).toBe(0);
+    expect(filteredRacers).toHaveLength(0);
   });
 });

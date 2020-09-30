@@ -46,7 +46,7 @@ export const InputTextField = ({ input, id, placeholder, meta: { touched, error 
 export const onSubmitSuccess = (result, dispatch) => dispatch(reset('addRacer'));
 
 export default reduxForm({
+  onSubmitSuccess,
   form: 'addRacer',
-  validate: validateRacer,
-  onSubmitSuccess
+  validate: validateRacer
 })(AddRacer);

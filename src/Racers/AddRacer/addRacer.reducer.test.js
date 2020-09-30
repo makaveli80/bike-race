@@ -19,6 +19,13 @@ describe('addRacer', () => {
       meta: {validateRacer: true}
     });
   });
+
+  it('should contain a metadata "validateRacer" in action', () => {
+    // when
+    const action = addRacer(NEW_RACER);
+    // then
+    expect(action.meta.validateRacer).toBeTruthy();
+  });
 });
 
 describe('addRacerReduce', () => {
@@ -26,7 +33,7 @@ describe('addRacerReduce', () => {
     // when
     const racersUpdated = addRacerReduce(EMPTY_RACERS, NEW_RACER);
     // then
-    expect(racersUpdated.length).toBe(1);
+    expect(racersUpdated).toHaveLength(1);
     expect(racersUpdated).toContain(NEW_RACER);
   });
 
@@ -34,7 +41,7 @@ describe('addRacerReduce', () => {
     // when
     const racersUpdated = addRacerReduce(FILLED_RACERS, NEW_RACER);
     // then
-    expect(racersUpdated.length).toBe(2);
+    expect(racersUpdated).toHaveLength(2);
     expect(racersUpdated).toContain(NEW_RACER);
   });
 
