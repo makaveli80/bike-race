@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { getFilteredRacersSelector } from './racers.selector';
+import { getFilteredRacersSelector } from './racersList.selector';
 
 export const getRacersNavigationSelector = ({racers, racersFilter}) => {
   const filteredRacers = getFilteredRacersSelector({racers, racersFilter});

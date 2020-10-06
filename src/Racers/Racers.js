@@ -11,8 +11,8 @@ import {
   incrementPageRacers,
   decrementPageRacers
 } from './NavigateRacers/navigatePage.reducer';
-import { getFilteredRacersSelector } from './racers.selector';
-import { getRacersNavigationSelector } from './racersNavigation.selector';
+import { getFilteredRacersSelector } from './FilterRacers/racersList.selector';
+import { getRacersNavigationSelector } from './FilterRacers/racersNavigation.selector';
 
 export const Racers = ({
   addRacer,
