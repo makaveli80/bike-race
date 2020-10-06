@@ -26,6 +26,7 @@
 @block submit-button {
   @apply bg-blue-500 rounded-md;
   @apply text-white font-bold;
+  @apply w-full;
   @apply py-2 px-8;
 
   &:hover {
@@ -39,5 +40,11 @@
   &:disabled {
     @apply bg-blue-200;
     @apply cursor-not-allowed;
+  }
+
+  @element icon {
+    @apply inline;
+    @apply text-2xl;
+    @apply mr-4;
   }
 }

@@ -30,11 +30,20 @@ const RACERS_NAVIGATION_LAST_PAGE = {
   totalPages: 3
 };
 
+const RACERS_NO_PAGE = {
+  currentIndex: 0,
+  totalFilteredRacers: 0,
+  totalRacers: 0,
+  totalPages: 0
+};
+
 const propsFirstPage = { racersNavigation: RACERS_NAVIGATION_FIRST_PAGE };
 const propsMiddlePage = { racersNavigation: RACERS_NAVIGATION_MIDDLE_PAGE };
 const propsLastPage = { racersNavigation: RACERS_NAVIGATION_LAST_PAGE };
+const propsNoPage = { racersNavigation: RACERS_NO_PAGE };
 
 storiesOf('NavigateRacers', module)
   .add('first page', () => <NavigateRacers {...propsFirstPage} {...actions}/>)
   .add('middle page', () => <NavigateRacers {...propsMiddlePage} {...actions}/>)
-  .add('last page', () => <NavigateRacers {...propsLastPage} {...actions}/>);
+  .add('last page', () => <NavigateRacers {...propsLastPage} {...actions}/>)
+  .add('no page', () => <NavigateRacers {...propsNoPage} {...actions}/>);
