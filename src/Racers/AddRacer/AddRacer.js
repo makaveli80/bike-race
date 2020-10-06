@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
+import { MdPersonAdd } from 'react-icons/md';
 
 import './AddRacer.css';
 import validateRacer from '../ValidateRacer/validateRacer';
@@ -25,6 +26,7 @@ export const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
 
       <button type="submit" className="submit-button"
           disabled={invalid || submitting || pristine}>
+        <MdPersonAdd className="submit-button__icon" />
         Ajouter le coureur
       </button>
     </form>
