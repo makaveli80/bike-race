@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import './NavigateRacers.css';
 
@@ -23,7 +24,7 @@ const NavigateRacers = ({
         <button onClick={onDecrementPageRacers}
             className="page-navigation__previous-page"
             disabled={currentIndex <= 1}>
-          Page précedente
+          <MdKeyboardArrowLeft />
         </button>
         <span className="page-navigation__index-page">
           {currentIndex} / {totalPages}
@@ -31,7 +32,7 @@ const NavigateRacers = ({
         <button onClick={onIncrementPageRacers}
             className="page-navigation__next-page"
             disabled={currentIndex === totalPages}>
-          Page suivante
+          <MdKeyboardArrowRight />
         </button>
       </div>
     </div>

@@ -14,6 +14,7 @@
 
   @element index-page {
     @apply mx-2;
+    @apply text-xl;
   }
 
   @element next-page {
