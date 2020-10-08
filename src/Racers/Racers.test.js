@@ -1,40 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Racers, mapStateToProps } from './Racers';
+import { Racers } from './Racers';
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 
 const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
-const RACERS_FILTER = { indexPage: 1, racersPerPage: 2 };
-
-describe('"mapStateToProps" property for "redux"', () => {
-  const state = { racers: RACERS, racersFilter: RACERS_FILTER };
-
-  it('should map "filteredRacers" from state', () => {
-    // when
-    const props = mapStateToProps(state);
-    // then
-    expect(props.filteredRacers).toHaveLength(2);
-    expect(props.filteredRacers).toContain(RACER_1);
-    expect(props.filteredRacers).toContain(RACER_2);
-  });
-
-  it('should map "racersNavigation" from state', () => {
-    // when
-    const props = mapStateToProps(state);
-    // then
-    expect(props.racersNavigation.currentIndex).toBe(1);
-    expect(props.racersNavigation.totalFilteredRacers).toBe(2);
-    expect(props.racersNavigation.totalRacers).toBe(3);
-    expect(props.racersNavigation.totalPages).toBe(2);
-  });
-});
-
 const MAPPED_FILTERED_RACERS = [RACER_1, RACER_2];
 const MAPPED_RACERS_NAVIGATION = {
   currentIndex: 1,

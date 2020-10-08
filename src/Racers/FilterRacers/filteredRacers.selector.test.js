@@ -1,4 +1,4 @@
-import { getFilteredRacersSelector } from './racersList.selector';
+import getFilteredRacersSelector from './filteredRacers.selector';
 
 const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
