@@ -4,6 +4,10 @@ import {
   DECREMENT_PAGE_RACERS,
   decrementPageRacersReduce
 } from './NavigateRacers/navigatePage.reducer';
+import {
+  SEARCH_RACERS,
+  searchRacersReduce
+} from './FilterRacers/filterRacer.reducer';
 
 const INITIAL_RACERS_FILTER = {
   indexPage: 1,
@@ -17,6 +21,8 @@ export const racersFilterReducer = (state = INITIAL_RACERS_FILTER, action) => {
       return incrementPageRacersReduce(state);
     case DECREMENT_PAGE_RACERS:
       return decrementPageRacersReduce(state);
+    case SEARCH_RACERS:
+      return searchRacersReduce(state, action.payload)
     default:
       return state;
   }
