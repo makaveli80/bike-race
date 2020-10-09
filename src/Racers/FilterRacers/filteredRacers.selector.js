@@ -1,9 +1,12 @@
 import _ from 'lodash';
 
+import searchRacers from './searchRacers';
+
 const getFilteredRacersSelector = ({
-  racers, racersFilter: { indexPage, racersPerPage }
+  racers, racersFilter: { indexPage, racersPerPage, searchedWord }
 }) => {
-  const racersChunks = _.chunk(racers, racersPerPage);
+  const searchedRacers = searchRacers(racers, searchedWord);
+  const racersChunks = _.chunk(searchedRacers, racersPerPage);
   return _.get(racersChunks, `[${indexPage - 1}]`, []);
 }
 
