@@ -1,6 +1,6 @@
 export const SEARCH_RACERS = 'SEARCH_RACERS';
 
-export const searchRacers = (searchedWord) => {
+export const searchRacers = (searchedWord = '') => {
   return {
     type: SEARCH_RACERS,
     payload: searchedWord

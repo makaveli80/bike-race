@@ -21,6 +21,16 @@ describe('searchRacers', () => {
       payload: SEARCHED_WORD
     });
   });
+
+  it('should default searchedWord to "" if undefined', () => {
+    // when
+    const action = searchRacers();
+    // then
+    expect(action).toEqual({
+      type: SEARCH_RACERS,
+      payload: ''
+    });
+  });
 });
 
 describe('searchRacersReduce', () => {
