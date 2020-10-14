@@ -1,0 +1,21 @@
+@block search-racers {
+  @element label {
+    @apply block;
+    @apply text-gray-700 text-lg font-bold;
+    @apply mb-1;
+  }
+
+  @element input-words {
+    @apply appearance-none border rounded-md w-full;
+    @apply text-gray-700;
+    @apply py-1 px-3;
+
+    &:focus {
+      @apply outline-none shadow-outline;
+    }
+  }
+
+  @element help {
+    @apply text-sm text-gray-500 italic;
+  }
+}
