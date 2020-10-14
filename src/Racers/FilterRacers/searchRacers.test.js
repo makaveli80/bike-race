@@ -9,6 +9,7 @@ const EMPTY_SEARCHED_WORD = '';
 const SEARCHED_FIRST_NAME = 'Jean-Luc';
 const SEARCHED_LAST_NAME = 'Briois';
 const SEARCHED_WORD_COMMON = 'Jean';
+const SEARCHED_INSENTIVE_CASE = 'BRIOIS';
 
 describe('searcRacers', () => {
   it('should return list of all racers if search word is empty', () => {
@@ -41,5 +42,13 @@ describe('searcRacers', () => {
     expect(searchedRacers).toHaveLength(2);
     expect(searchedRacers).toContain(RACER_1);
     expect(searchedRacers).toContain(RACER_3);
+  });
+
+  it('should return list of racers containing searched word without case-sensitive', () => {
+    // when
+    const searchedRacers = searchRacers(RACERS, SEARCHED_INSENTIVE_CASE);
+    // then
+    expect(searchedRacers).toHaveLength(1);
+    expect(searchedRacers).toContain(RACER_1);
   });
 });

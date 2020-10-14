@@ -1,11 +1,12 @@
 import _ from 'lodash';
 
-const filterByWordOnFirstName = (word) => (racer) => racer.firstName.includes(word);
-const filterByWordOnLastName = (word) => (racer) => racer.lastName.includes(word);
+const filterByWordOnFirstName = (word) => (racer) => racer.firstName.toUpperCase().includes(word);
+const filterByWordOnLastName = (word) => (racer) => racer.lastName.toUpperCase().includes(word);
 
 const searchRacers = (racers, searchedWord) => {
-  const racersFilteredOnFirstName = _.filter(racers, filterByWordOnFirstName(searchedWord));
-  const racersFilteredOnLastName = _.filter(racers, filterByWordOnLastName(searchedWord));
+  const searchedWordInsensitiveToCase = searchedWord.toUpperCase();
+  const racersFilteredOnFirstName = _.filter(racers, filterByWordOnFirstName(searchedWordInsensitiveToCase));
+  const racersFilteredOnLastName = _.filter(racers, filterByWordOnLastName(searchedWordInsensitiveToCase));
   return _.union(racersFilteredOnFirstName, racersFilteredOnLastName);
 }
 
