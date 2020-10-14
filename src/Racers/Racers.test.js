@@ -5,6 +5,7 @@ import { Racers } from './Racers';
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
+import SearchRacers from './SearchRacers/SearchRacers';
 
 const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
@@ -23,13 +24,16 @@ describe('<Racers/>', () => {
   jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
   jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
   jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
+  jest.mock('./SearchRacers/SearchRacers', () => () => <span>SearchRacers</span>);
   const addRacer = jest.fn();
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
+  const searchRacers = jest.fn();
   const props = {
     addRacer,
     incrementPageRacers,
     decrementPageRacers,
+    searchRacers,
     filteredRacers: MAPPED_FILTERED_RACERS,
     racersNavigation: MAPPED_RACERS_NAVIGATION
   }
@@ -50,7 +54,7 @@ describe('<Racers/>', () => {
   });
 
   describe('<AddRacer> interactions', () => {
-    it('should launch an "addRacer" action when a submit event launched from component <AddRacer>', () => {
+    it('should launch an "addRacer" action when a "submit" event launched from component <AddRacer>', () => {
       // when
       shallowComponent.find(AddRacer).first().simulate('submit', {});
       // then
@@ -77,9 +81,9 @@ describe('<Racers/>', () => {
 
   it('should contain a <NavigateRacers> component', () => {
     // when
-    const NavigateRacersComponent = shallowComponent.find(NavigateRacers).first();
+    const navigateRacersComponent = shallowComponent.find(NavigateRacers).first();
     // then
-    expect(NavigateRacersComponent).toHaveLength(1);
+    expect(navigateRacersComponent).toHaveLength(1);
   });
 
   describe('<NavigateRacers> interactions', () => {
@@ -90,18 +94,41 @@ describe('<Racers/>', () => {
       expect(racersNavigationProps).toBeDefined();
     });
 
-    it('should launch an "incrementPageRacers" action when a incrementPageRacers event launched from component <NavigateRacers>', () => {
+    it('should launch an "incrementPageRacers" action when a "incrementPageRacers" event launched from component <NavigateRacers>', () => {
       // when
       shallowComponent.find(NavigateRacers).first().simulate('incrementPageRacers', {});
       // then
       expect(incrementPageRacers).toHaveBeenCalled();
     });
 
-    it('should launch an "decrementPageRacers" action when a decrementPageRacers event launched from component <NavigateRacers>', () => {
+    it('should launch an "decrementPageRacers" action when a "decrementPageRacers" event launched from component <NavigateRacers>', () => {
       // when
       shallowComponent.find(NavigateRacers).first().simulate('decrementPageRacers', {});
       // then
       expect(decrementPageRacers).toHaveBeenCalled();
+    });
+  });
+
+  it('should contain a <SearchRacers> component', () => {
+    // when
+    const searchRacersComponent = shallowComponent.find(SearchRacers).first();
+    // then
+    expect(searchRacersComponent).toHaveLength(1);
+  });
+
+  describe('<SearchRacers> interactions', () => {
+    it('should launch an "searchRacers" action when a "submit" event launched from component <SearchRacers>', () => {
+      // when
+      shallowComponent.find(SearchRacers).first().simulate('submit', {});
+      // then
+      expect(searchRacers).toHaveBeenCalled();
+    });
+
+    it('should launch an "searchRacers" action when a "change" event launched from component <SearchRacers>', () => {
+      // when
+      shallowComponent.find(SearchRacers).first().simulate('change', {});
+      // then
+      expect(searchRacers).toHaveBeenCalled();
     });
   });
 });
