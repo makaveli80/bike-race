@@ -1,9 +1,6 @@
 import { ADD_RACER, addRacerReduce } from './AddRacer/addRacer.reducer';
 
-const INITIAL_RACERS = [
-  { firstName: 'Jean-Luc', lastName: 'Briois' },
-  { firstName: 'Corentin', lastName: 'Bachelet' }
-];
+const INITIAL_RACERS = [];
 
 export const racersReducer = (state = INITIAL_RACERS, action) => {
   switch (action.type) {
