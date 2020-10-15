@@ -27,13 +27,17 @@ export const Racers = ({
 }) => {
   return (
     <div className="racers">
-      <div className="racers__add-racer">
+      <div className="racers__left-panel">
         <AddRacer onSubmit={(racer) => addRacer(racer)}/>
       </div>
-      <div className="racers__list-racers">
-        <SearchRacers
-          onSubmit={(search) => searchRacers(search.searchedWord)}
-          onChange={(search) => searchRacers(search.searchedWord)}/>
+
+      <div className="racers__right-panel">
+        <div className="right-panel__search-racers">
+          <SearchRacers
+            onSubmit={(search) => searchRacers(search.searchedWord)}
+            onChange={(search) => searchRacers(search.searchedWord)}/>
+        </div>
+
         <ListRacers racers={filteredRacers} />
         <NavigateRacers
           racersNavigation={racersNavigation}
