@@ -9,12 +9,14 @@ import {
 
 const RACERS_FILTER = {
   indexPage: 2,
-  racersPerPage: 5
+  racersPerPage: 5,
+  searchedWord: ''
 };
 
 const RACERS_FILTER_MINIMUM_INDEX = {
   indexPage: 1,
-  racersPerPage: 5
+  racersPerPage: 5,
+  searchedWord: ''
 };
 
 describe('incrementPageRacers', () => {
