@@ -3,30 +3,29 @@ import { shallow } from 'enzyme';
 
 import ListRacers from './ListRacers';
 
-import { NO_RACER, FILTERED_RACERS } from '../racers.fixtures';
-
 describe('<ListRacers/>', () => {
-  it('should render shallowly', () => {
+  it('should render shallowly when an empty list of racers', () => {
     // when
-    const shallowComponent = shallow(<ListRacers/>);
+    const shallowComponent = shallow(<ListRacers />);
     // then
     expect(shallowComponent).toBeDefined();
   });
 
-  it('should render shallowly when an empty list of racers', () => {
-    // given
-    const props = { racers: NO_RACER };
+  it('should contain a no racer message when an empty list of racers', () => {
     // when
-    const shallowComponent = shallow(<ListRacers {...props}/>);
+    const shallowComponent = shallow(<ListRacers />);
     // then
-    expect(shallowComponent).toBeDefined();
+    expect(shallowComponent.find('.list-racers__no-racer')).toHaveLength(1);
   });
 
   it('should render shallowly with a list of racers', () => {
-    // given
-    const props = { racers: FILTERED_RACERS };
     // when
-    const shallowComponent = shallow(<ListRacers {...props}/>);
+    const shallowComponent = shallow(
+      <ListRacers>
+        <span>Racer 1</span>
+        <span>Racer 2</span>
+      </ListRacers>
+    );
     // then
     expect(shallowComponent).toBeDefined();
   });

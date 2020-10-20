@@ -26,6 +26,10 @@ export const Racers = ({
   decrementPageRacers,
   searchRacers
 }) => {
+  const renderEachRacer = filteredRacers.map((racer, index) =>
+    <span key={index}>{racer.lastName} {racer.firstName}</span>
+  );
+
   return (
     <div className="racers">
 
@@ -44,7 +48,10 @@ export const Racers = ({
             onChange={(search) => searchRacers(search.searchedWord)}/>
         </div>
 
-        <ListRacers racers={filteredRacers} />
+        <ListRacers>
+          {renderEachRacer}
+        </ListRacers>
+        
         <NavigateRacers
           racersNavigation={racersNavigation}
           onIncrementPageRacers={() => incrementPageRacers()}

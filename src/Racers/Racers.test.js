@@ -72,9 +72,9 @@ describe('<Racers/>', () => {
   });
 
   describe('<ListRacers> interactions', () => {
-    it('should transmit "filteredRacers" props to <ListRacers> component', () => {
+    it('should transmit "children" props to <ListRacers> component', () => {
       // when
-      const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
+      const racersProps = shallowComponent.find(ListRacers).first().prop('children');
       // then
       expect(racersProps).toBeDefined();
       expect(racersProps).toHaveLength(2);
