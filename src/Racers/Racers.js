@@ -7,6 +7,7 @@ import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
+import ShowRacer from './ShowRacer/ShowRacer';
 
 import { addRacer } from './AddRacer/addRacer.reducer';
 import {
@@ -27,7 +28,7 @@ export const Racers = ({
   searchRacers
 }) => {
   const renderEachRacer = filteredRacers.map((racer, index) =>
-    <span key={index}>{racer.lastName} {racer.firstName}</span>
+    <ShowRacer key={index} racer={racer}/>
   );
 
   return (
@@ -51,7 +52,7 @@ export const Racers = ({
         <ListRacers>
           {renderEachRacer}
         </ListRacers>
-        
+
         <NavigateRacers
           racersNavigation={racersNavigation}
           onIncrementPageRacers={() => incrementPageRacers()}

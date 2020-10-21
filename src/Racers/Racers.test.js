@@ -7,6 +7,7 @@ import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
+import ShowRacer from './ShowRacer/ShowRacer';
 
 import { FILTERED_RACERS } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
@@ -20,6 +21,7 @@ describe('<Racers/>', () => {
   jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
   jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
   jest.mock('./SearchRacers/SearchRacers', () => () => <span>SearchRacers</span>);
+  jest.mock('./ShowRacer/ShowRacer', () => () => <span>ShowRacer</span>);
   const addRacer = jest.fn();
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
@@ -79,6 +81,13 @@ describe('<Racers/>', () => {
       expect(racersProps).toBeDefined();
       expect(racersProps).toHaveLength(2);
     });
+  });
+
+  it('should contain some <ShowRacer> components', () => {
+    // when
+    const listRacersComponent = shallowComponent.find(ShowRacer);
+    // then
+    expect(listRacersComponent).toHaveLength(2);
   });
 
   it('should contain a <NavigateRacers> component', () => {
