@@ -4,14 +4,9 @@ import { action } from '@storybook/addon-actions';
 
 import ListRacers from './ListRacers';
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
+import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
 
-const EMPTY_RACERS = [];
-
-const propsZeroRacer = { racers: EMPTY_RACERS };
+const propsZeroRacer = { racers: NO_RACER };
 const propsThreeRacer = { racers: RACERS };
 
 storiesOf('ListRacers', module)

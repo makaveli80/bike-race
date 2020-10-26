@@ -3,11 +3,7 @@ import getRacersNavigationSelector from './racersNavigation.selector';
 import getFilteredRacersSelector from './filteredRacers.selector';
 jest.mock('./filteredRacers.selector');
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
-const RACERS_EMPTY = [];
+import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
 
 describe('getRacersNavigationSelector', () => {
 
@@ -15,7 +11,7 @@ describe('getRacersNavigationSelector', () => {
     const RACERS_FILTER = { indexPage: 1, racersPerPage: 2, searchedWord: '' };
     const FILTERED_RACERS = [RACER_1, RACER_2];
     const STATE = { racers: RACERS, racersFilter: RACERS_FILTER };
-    const STATE_RACERS_EMPTY = { racers: RACERS_EMPTY, racersFilter: RACERS_FILTER };
+    const STATE_RACERS_EMPTY = { racers: NO_RACER, racersFilter: RACERS_FILTER };
 
     it('should return current index of list of racers', () => {
       // given
@@ -55,7 +51,7 @@ describe('getRacersNavigationSelector', () => {
 
     it('should return all properties to 0 when an empty list of racers', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(RACERS_EMPTY);
+      getFilteredRacersSelector.mockReturnValue(NO_RACER);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE_RACERS_EMPTY);
       // then
@@ -111,7 +107,7 @@ describe('getRacersNavigationSelector', () => {
 
     it('should return all properties to 0 when an empty list of racers filtered', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(RACERS_EMPTY);
+      getFilteredRacersSelector.mockReturnValue(NO_RACER);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE_NO_RESULT_SEARCH);
       // then

@@ -2,17 +2,14 @@ import getFilteredRacersSelector from './filteredRacers.selector';
 import searchRacers from './searchRacers';
 jest.mock('./searchRacers');
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
+import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
+
 const RACERS_FILTER = { indexPage: 1, racersPerPage: 2, searchedWord: '' };
 const RACERS_FILTER_LAST_PAGE = { indexPage: 2, racersPerPage: 2, searchedWord: '' };
 
 const RACERS_FILTER_INDEX_TOO_HIGH = { indexPage: 3, racersPerPage: 2, searchedWord: '' };
 const RACERS_FILTER_INDEX_0 = { indexPage: 0, racersPerPage: 2, searchedWord: '' };
 const RACERS_FILTER_INDEX_TOO_LOW = { indexPage: -1, racersPerPage: 2, searchedWord: '' };
-const RACERS_EMPTY = [];
 
 describe('getFilteredRacersSelector', () => {
   it('should return a filtered list of racers', () => {
@@ -40,10 +37,10 @@ describe('getFilteredRacersSelector', () => {
 
   it('should return an empty list when racers is empty', () => {
     // given
-    searchRacers.mockReturnValue(RACERS_EMPTY);
+    searchRacers.mockReturnValue(NO_RACER);
     // when
     const filteredRacers = getFilteredRacersSelector(
-      { racers: RACERS_EMPTY, racersFilter: RACERS_FILTER });
+      { racers: NO_RACER, racersFilter: RACERS_FILTER });
     // then
     expect(filteredRacers).toHaveLength(0);
   });

@@ -1,14 +1,11 @@
 import searchRacers from './searchRacers';
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Alexandre', lastName: 'Jean' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
+import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
 
 const EMPTY_SEARCHED_WORD = '';
 const SEARCHED_FIRST_NAME = 'Jean-Luc';
 const SEARCHED_LAST_NAME = 'Briois';
-const SEARCHED_WORD_COMMON = 'Jean';
+const SEARCHED_WORD_COMMON = 'ean';
 const SEARCHED_INSENTIVE_CASE = 'BRIOIS';
 
 describe('searcRacers', () => {
