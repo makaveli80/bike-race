@@ -4,7 +4,7 @@ import {
   addRacerReduce
 } from './addRacer.reducer';
 
-import { NEW_RACER, NO_RACER, RACERS } from '../racers.fixtures';
+import { NEW_RACER, NO_RACER, RACERS, RACERS_LENGTH } from '../racers.fixtures';
 
 describe('addRacer', () => {
   it('should return an "add racer" action', () => {
@@ -39,7 +39,8 @@ describe('addRacerReduce', () => {
     // when
     const racersUpdated = addRacerReduce(RACERS, NEW_RACER);
     // then
-    expect(racersUpdated).toHaveLength(4);
+    const totalRacersExpected = RACERS_LENGTH + 1;
+    expect(racersUpdated).toHaveLength(totalRacersExpected);
     expect(racersUpdated).toContain(NEW_RACER);
   });
 

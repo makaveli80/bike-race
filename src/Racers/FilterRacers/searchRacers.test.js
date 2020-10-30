@@ -1,6 +1,13 @@
 import searchRacers from './searchRacers';
 
-import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
+import {
+  NO_RACER,
+  RACERS,
+  RACERS_LENGTH,
+  RACER_1,
+  RACER_2,
+  RACER_3
+} from '../racers.fixtures';
 
 const EMPTY_SEARCHED_WORD = '';
 const SEARCHED_FIRST_NAME = 'Jean-Luc';
@@ -13,7 +20,7 @@ describe('searcRacers', () => {
     // when
     const searchedRacers = searchRacers(RACERS, EMPTY_SEARCHED_WORD);
     // then
-    expect(searchedRacers).toHaveLength(3);
+    expect(searchedRacers).toHaveLength(RACERS_LENGTH);
   });
 
   it('should return list of racers containing searched word in firstName', () => {

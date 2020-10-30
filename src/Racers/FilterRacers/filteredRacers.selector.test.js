@@ -2,14 +2,22 @@ import getFilteredRacersSelector from './filteredRacers.selector';
 import searchRacers from './searchRacers';
 jest.mock('./searchRacers');
 
-import { NO_RACER, RACERS, RACER_1, RACER_2, RACER_3 } from '../racers.fixtures';
+import {
+  NO_RACER,
+  RACERS,
+  FILTERED_RACERS,
+  FILTERED_RACERS_LENGTH,
+  FILTERED_RACERS_LAST_PAGE,
+  FILTERED_RACERS_LAST_PAGE_LENGTH
+} from '../racers.fixtures';
+import {
+  RACERS_FILTER,
+  RACERS_FILTER_LAST_PAGE
+} from '../racersFilter.fixtures';
 
-const RACERS_FILTER = { indexPage: 1, racersPerPage: 2, searchedWord: '' };
-const RACERS_FILTER_LAST_PAGE = { indexPage: 2, racersPerPage: 2, searchedWord: '' };
-
-const RACERS_FILTER_INDEX_TOO_HIGH = { indexPage: 3, racersPerPage: 2, searchedWord: '' };
-const RACERS_FILTER_INDEX_0 = { indexPage: 0, racersPerPage: 2, searchedWord: '' };
 const RACERS_FILTER_INDEX_TOO_LOW = { indexPage: -1, racersPerPage: 2, searchedWord: '' };
+const RACERS_FILTER_INDEX_ZERO = { indexPage: 0, racersPerPage: 2, searchedWord: '' };
+const RACERS_FILTER_INDEX_TOO_HIGH = { indexPage: 4, racersPerPage: 2, searchedWord: '' };
 
 describe('getFilteredRacersSelector', () => {
   it('should return a filtered list of racers', () => {
@@ -19,9 +27,9 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER });
     // then
-    expect(filteredRacers).toHaveLength(2);
-    expect(filteredRacers).toContain(RACER_1);
-    expect(filteredRacers).toContain(RACER_2);
+    expect(filteredRacers).toHaveLength(FILTERED_RACERS_LENGTH);
+    expect(filteredRacers).toContain(FILTERED_RACERS[0]);
+    expect(filteredRacers).toContain(FILTERED_RACERS[1]);
   });
 
   it('should return a filtered list of racers when filter is last page', () => {
@@ -31,8 +39,8 @@ describe('getFilteredRacersSelector', () => {
     const filteredRacers = getFilteredRacersSelector(
       { racers: RACERS, racersFilter: RACERS_FILTER_LAST_PAGE });
     // then
-    expect(filteredRacers).toHaveLength(1);
-    expect(filteredRacers).toContain(RACER_3);
+    expect(filteredRacers).toHaveLength(FILTERED_RACERS_LAST_PAGE_LENGTH);
+    expect(filteredRacers).toContain(FILTERED_RACERS_LAST_PAGE[0]);
   });
 
   it('should return an empty list when racers is empty', () => {
@@ -60,7 +68,7 @@ describe('getFilteredRacersSelector', () => {
     searchRacers.mockReturnValue(RACERS);
     // when
     const filteredRacers = getFilteredRacersSelector(
-      { racers: RACERS, racersFilter: RACERS_FILTER_INDEX_TOO_HIGH });
+      { racers: RACERS, racersFilter: RACERS_FILTER_INDEX_ZERO });
     // then
     expect(filteredRacers).toHaveLength(0);
   });
