@@ -1,0 +1,52 @@
+@block racers-sumary {
+  @element title {
+    @apply text-2xl font-bold ;
+    @apply cursor-pointer;
+
+    &:hover {
+      @apply underline;
+    }
+  }
+
+  @element tips {
+    @apply flex flex-row;
+    @apply text-blue-700;
+    @apply mt-2;
+  }
+}
+
+@block title {
+  @element icon {
+    @apply inline-block;
+    @apply text-blue-600;
+    @apply ml-4;
+  }
+}
+
+@block tips {
+  @element left-tips {
+    @apply w-1/3;
+    @apply pr-4;
+  }
+
+  @element right-tips {
+    @apply w-2/3;
+    @apply pl-4;
+  }
+
+  @element introduction-text {
+    @apply mb-2;
+
+    & span {
+      @apply border-b border-dotted border-blue-600;
+      @apply italic;
+      @apply pb-1
+    }
+  }
+
+  @element icon-list {
+    @apply inline-block;
+    @apply text-blue-600 text-4xl;
+    @apply mr-2;
+  }
+}
