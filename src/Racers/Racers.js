@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './Racers.css'
+import RacersSumary from './RacersSumary/RacersSumary';
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
@@ -27,6 +28,11 @@ export const Racers = ({
 }) => {
   return (
     <div className="racers">
+
+      <div className="racers__sumary">
+        <RacersSumary />
+      </div>
+
       <div className="racers__left-panel">
         <AddRacer onSubmit={(racer) => addRacer(racer)}/>
       </div>

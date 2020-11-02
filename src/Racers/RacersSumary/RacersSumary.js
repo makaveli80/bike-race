@@ -3,7 +3,7 @@ import { MdHelpOutline, MdHighlightOff, MdPersonAdd, MdFormatListNumbered, MdSea
 
 import './RacersSumary.css';
 
-const DEFAULT_STATE = { showTipsMode: true };
+const DEFAULT_STATE = { showTipsMode: false };
 
 class RacersSumary extends React.Component {
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { Racers } from './Racers';
+import RacersSumary from './RacersSumary/RacersSumary';
 import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
@@ -21,6 +22,7 @@ describe('<Racers/>', () => {
   let shallowComponent;
 
   // mocks
+  jest.mock('./RacersSumary/RacersSumary', () => () => <span>RacersSumary</span>);
   jest.mock('./AddRacer/AddRacer', () => () => <span>AddRacer</span>);
   jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
   jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
@@ -44,6 +46,13 @@ describe('<Racers/>', () => {
 
   it('should render shallowly', () => {
     expect(shallowComponent).toBeDefined();
+  });
+
+  it('should contain a <RacersSumary> component', () => {
+    // when
+    const addRacerComponent = shallowComponent.find(RacersSumary);
+    // then
+    expect(addRacerComponent).toHaveLength(1);
   });
 
   it('should contain a <AddRacer> component', () => {
