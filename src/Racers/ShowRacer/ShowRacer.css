@@ -24,11 +24,12 @@
 }
 
 @block confirm-button {
-  @element icon {
-    @extend %button__icon;
-  }
   @element count-down {
     @apply font-normal text-sm
+  }
+  @element icon {
+    @extend %button__icon;
+    @apply ml-2;
   }
 }
 

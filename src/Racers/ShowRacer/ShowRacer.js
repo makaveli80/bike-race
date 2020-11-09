@@ -6,7 +6,7 @@ import './ShowRacer.css'
 const DEFAULT_RACER = { firstName: '', lastName: '' };
 const DEFAULT_PROPS = { racer: DEFAULT_RACER };
 const DEFAULT_STATE = { confirmationMode: false, countDown: 0 };
-const STATE_START_COUNT_DOWN = { confirmationMode: true, countDown: 5 };
+const STATE_START_COUNT_DOWN = { confirmationMode: true, countDown: 10 };
 const INTERVAL_COUNT_DOWN = 1000;
 
 class ShowRacer extends React.Component {
@@ -43,8 +43,10 @@ class ShowRacer extends React.Component {
     } else {
       return (
         <button className="show-racer__confirm-button">
+          <span className="confirm-button__count-down">
+            Cliquez à nouveau pour supprimer ({countDown})
+          </span>
           <MdWarning className="confirm-button__icon" />
-          <span className="confirm-button__count-down"> Certain ? ({countDown})</span>
         </button>
       );
     }

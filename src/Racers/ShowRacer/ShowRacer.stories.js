@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 
 import ShowRacer from './ShowRacer';
 
+import { RACER_1 } from '../racers.fixtures';
+
 const withTemplate = (Story) => {
   return (
     <div className="container mx-auto">
@@ -15,7 +17,7 @@ const withTemplate = (Story) => {
   );
 }
 
-const props = { racer: { firstName: 'Jean-Luc', lastName: 'Briois' }}
+const props = { racer: RACER_1}
 
 storiesOf('ShowRacer', module)
   .addDecorator(withTemplate)
