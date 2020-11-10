@@ -3,7 +3,7 @@ import { MdDelete, MdWarning } from 'react-icons/md';
 
 import './ShowRacer.css'
 
-const DEFAULT_RACER = { firstName: '', lastName: '' };
+const DEFAULT_RACER = { id: 1, firstName: '', lastName: '' };
 const DEFAULT_PROPS = { racer: DEFAULT_RACER };
 const DEFAULT_STATE = { confirmationMode: false, countDown: 0 };
 const STATE_START_COUNT_DOWN = { confirmationMode: true, countDown: 10 };
