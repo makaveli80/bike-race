@@ -1,0 +1,48 @@
+@block show-racer {
+  @element delete-button {
+    @extend %show-racer__button;
+    @apply bg-blue-500;
+    @apply text-white;
+    &:hover {
+      @apply bg-blue-700;
+    }
+  }
+  @element confirm-button {
+    @extend %show-racer__button;
+    @apply bg-red-500;
+    @apply text-white;
+    &:hover {
+        @apply bg-red-700;
+    }
+  }
+}
+
+@block delete-button {
+  @element icon {
+    @extend %button__icon;
+  }
+}
+
+@block confirm-button {
+  @element count-down {
+    @apply font-normal text-sm
+  }
+  @element icon {
+    @extend %button__icon;
+    @apply ml-2;
+  }
+}
+
+%show-racer__button {
+  @apply float-right;
+  @apply rounded-md;
+  @apply px-2 pt-0 pb-1;
+  @apply font-bold;
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+%button__icon {
+  @apply inline-block;
+}

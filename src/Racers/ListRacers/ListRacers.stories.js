@@ -3,12 +3,14 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import ListRacers from './ListRacers';
+import ShowRacer from '../ShowRacer/ShowRacer';
 
-import { NO_RACER, RACERS } from '../racers.fixtures';
+import { RACERS } from '../racers.fixtures';
 
-const propsZeroRacer = { racers: NO_RACER };
-const propsFiveRacer = { racers: RACERS };
+const childrenThreeRacer = RACERS.map((racer, index) =>
+  <ShowRacer key={index} racer={racer}/>
+)
 
 storiesOf('ListRacers', module)
-  .add('0 racer', () => <ListRacers {...propsZeroRacer}/>)
-  .add('5 racers', () => <ListRacers {...propsFiveRacer}/>);
+  .add('0 racer', () => <ListRacers/>)
+  .add('5 racers', () => <ListRacers>{childrenThreeRacer}</ListRacers>);

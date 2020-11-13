@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import {
   ADD_RACER,
   addRacer,
@@ -32,7 +34,9 @@ describe('addRacerReduce', () => {
     const racersUpdated = addRacerReduce(NO_RACER, NEW_RACER);
     // then
     expect(racersUpdated).toHaveLength(1);
-    expect(racersUpdated).toContain(NEW_RACER);
+    expect(racersUpdated).toContainEqual(
+      expect.objectContaining(NEW_RACER)
+    );
   });
 
   it('should add a new racer to an already filled list of racers', () => {
@@ -41,7 +45,9 @@ describe('addRacerReduce', () => {
     // then
     const totalRacersExpected = RACERS_LENGTH + 1;
     expect(racersUpdated).toHaveLength(totalRacersExpected);
-    expect(racersUpdated).toContain(NEW_RACER);
+    expect(racersUpdated).toContainEqual(
+      expect.objectContaining(NEW_RACER)
+    );
   });
 
   it('should add a new racer to the first place of the list', () => {
@@ -49,6 +55,22 @@ describe('addRacerReduce', () => {
     const racersUpdated = addRacerReduce(RACERS, NEW_RACER);
     // then
     const firstRacer = racersUpdated[0];
-    expect(firstRacer).toBe(NEW_RACER);
+    expect(firstRacer).toMatchObject(NEW_RACER);
   });
+
+  it('should add a new racer assigning an unique ID', () => {
+    // when
+    const racersUpdated = addRacerReduce(RACERS, NEW_RACER);
+    // then
+    const uniqueIds = getUniqueIds(racersUpdated);
+    expect(uniqueIds.length).toBe(racersUpdated.length);
+  });
+
+  function getUniqueIds(racers) {
+    return _(racers)
+      .map('id')
+      .compact()
+      .uniq()
+      .value();
+  }
 });

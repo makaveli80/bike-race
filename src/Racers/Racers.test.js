@@ -7,6 +7,7 @@ import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
+import ShowRacer from './ShowRacer/ShowRacer';
 
 import { FILTERED_RACERS } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
@@ -20,15 +21,18 @@ describe('<Racers/>', () => {
   jest.mock('./ListRacers/ListRacers', () => () => <span>ListRacers</span>);
   jest.mock('./NavigateRacers/NavigateRacers', () => () => <span>NavigateRacers</span>);
   jest.mock('./SearchRacers/SearchRacers', () => () => <span>SearchRacers</span>);
+  jest.mock('./ShowRacer/ShowRacer', () => () => <span>ShowRacer</span>);
   const addRacer = jest.fn();
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
   const searchRacers = jest.fn();
+  const deleteRacer = jest.fn();
   const props = {
     addRacer,
     incrementPageRacers,
     decrementPageRacers,
     searchRacers,
+    deleteRacer,
     filteredRacers: FILTERED_RACERS,
     racersNavigation: RACERS_NAVIGATION
   }
@@ -72,12 +76,28 @@ describe('<Racers/>', () => {
   });
 
   describe('<ListRacers> interactions', () => {
-    it('should transmit "filteredRacers" props to <ListRacers> component', () => {
+    it('should transmit "children" props to <ListRacers> component', () => {
       // when
-      const racersProps = shallowComponent.find(ListRacers).first().prop('racers');
+      const racersProps = shallowComponent.find(ListRacers).first().prop('children');
       // then
       expect(racersProps).toBeDefined();
       expect(racersProps).toHaveLength(2);
+    });
+  });
+
+  it('should contain some <ShowRacer> components', () => {
+    // when
+    const listRacersComponent = shallowComponent.find(ShowRacer);
+    // then
+    expect(listRacersComponent).toHaveLength(2);
+  });
+
+  describe('<ShowRacer> interactions', () => {
+    it('should launch an "deleteRacer" action when a "deleteRacer" event launched from component <ShowRacer>', () => {
+      // when
+      shallowComponent.find(ShowRacer).first().simulate('deleteRacer', {});
+      // then
+      expect(deleteRacer).toHaveBeenCalled();
     });
   });
 

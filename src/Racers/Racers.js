@@ -7,6 +7,7 @@ import AddRacer from './AddRacer/AddRacer';
 import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
+import ShowRacer from './ShowRacer/ShowRacer';
 
 import { addRacer } from './AddRacer/addRacer.reducer';
 import {
@@ -14,6 +15,7 @@ import {
   decrementPageRacers
 } from './NavigateRacers/navigatePage.reducer';
 import { searchRacers } from './FilterRacers/filterRacer.reducer';
+import { deleteRacer } from './DeleteRacer/deleteRacer.reducer';
 
 import getFilteredRacersSelector from './FilterRacers/filteredRacers.selector';
 import getRacersNavigationSelector from './FilterRacers/racersNavigation.selector';
@@ -24,8 +26,15 @@ export const Racers = ({
   racersNavigation,
   incrementPageRacers,
   decrementPageRacers,
-  searchRacers
+  searchRacers,
+  deleteRacer
 }) => {
+  const renderEachRacer = filteredRacers.map((racer) =>
+    <ShowRacer key={racer.id}
+      racer={racer}
+      onDeleteRacer={(racer) => deleteRacer(racer)}/>
+  );
+
   return (
     <div className="racers">
 
@@ -44,7 +53,10 @@ export const Racers = ({
             onChange={(search) => searchRacers(search.searchedWord)}/>
         </div>
 
-        <ListRacers racers={filteredRacers} />
+        <ListRacers>
+          {renderEachRacer}
+        </ListRacers>
+
         <NavigateRacers
           racersNavigation={racersNavigation}
           onIncrementPageRacers={() => incrementPageRacers()}
@@ -65,5 +77,6 @@ export default connect(mapStateToProps, {
   addRacer,
   incrementPageRacers,
   decrementPageRacers,
-  searchRacers
+  searchRacers,
+  deleteRacer
 })(Racers);
