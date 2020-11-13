@@ -26,11 +26,13 @@ describe('<Racers/>', () => {
   const incrementPageRacers = jest.fn();
   const decrementPageRacers = jest.fn();
   const searchRacers = jest.fn();
+  const deleteRacer = jest.fn();
   const props = {
     addRacer,
     incrementPageRacers,
     decrementPageRacers,
     searchRacers,
+    deleteRacer,
     filteredRacers: FILTERED_RACERS,
     racersNavigation: RACERS_NAVIGATION
   }
@@ -88,6 +90,15 @@ describe('<Racers/>', () => {
     const listRacersComponent = shallowComponent.find(ShowRacer);
     // then
     expect(listRacersComponent).toHaveLength(2);
+  });
+
+  describe('<ShowRacer> interactions', () => {
+    it('should launch an "deleteRacer" action when a "deleteRacer" event launched from component <ShowRacer>', () => {
+      // when
+      shallowComponent.find(ShowRacer).first().simulate('deleteRacer', {});
+      // then
+      expect(deleteRacer).toHaveBeenCalled();
+    });
   });
 
   it('should contain a <NavigateRacers> component', () => {

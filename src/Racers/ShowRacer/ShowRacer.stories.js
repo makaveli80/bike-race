@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import ShowRacer from './ShowRacer';
 
@@ -17,8 +18,12 @@ const withTemplate = (Story) => {
   );
 }
 
+const actions = {
+  onDeleteRacer: action('onDeleteRacer')
+}
+
 const props = { racer: RACER_1}
 
 storiesOf('ShowRacer', module)
   .addDecorator(withTemplate)
-  .add('normal', () => <ShowRacer {...props}/>);
+  .add('normal', () => <ShowRacer {...props} {...actions}/>);

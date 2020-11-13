@@ -15,6 +15,7 @@ import {
   decrementPageRacers
 } from './NavigateRacers/navigatePage.reducer';
 import { searchRacers } from './FilterRacers/filterRacer.reducer';
+import { deleteRacer } from './DeleteRacer/deleteRacer.reducer';
 
 import getFilteredRacersSelector from './FilterRacers/filteredRacers.selector';
 import getRacersNavigationSelector from './FilterRacers/racersNavigation.selector';
@@ -25,10 +26,13 @@ export const Racers = ({
   racersNavigation,
   incrementPageRacers,
   decrementPageRacers,
-  searchRacers
+  searchRacers,
+  deleteRacer
 }) => {
-  const renderEachRacer = filteredRacers.map((racer, index) =>
-    <ShowRacer key={index} racer={racer}/>
+  const renderEachRacer = filteredRacers.map((racer) =>
+    <ShowRacer key={racer.id}
+      racer={racer}
+      onDeleteRacer={(racer) => deleteRacer(racer)}/>
   );
 
   return (
@@ -73,5 +77,6 @@ export default connect(mapStateToProps, {
   addRacer,
   incrementPageRacers,
   decrementPageRacers,
-  searchRacers
+  searchRacers,
+  deleteRacer
 })(Racers);
