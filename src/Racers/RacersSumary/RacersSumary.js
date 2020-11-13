@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdHelpOutline, MdHighlightOff, MdPersonAdd, MdFormatListNumbered, MdSearch } from 'react-icons/md';
+import { MdHelpOutline, MdHighlightOff, MdPersonAdd, MdFormatListNumbered, MdSearch, MdDeleteForever } from 'react-icons/md';
 
 import './RacersSumary.css';
 
@@ -70,6 +70,9 @@ class RacersSumary extends React.Component {
               <br/>
               <MdSearch className="tips__icon-list" />
               Filtrez les coureurs à l'aide de la barre de recherche.
+              <br/>
+              <MdDeleteForever className="tips__icon-list" />
+              Supprimer un des coureurs de la liste (ne pas oublier de confirmer la suppression en cliquant sur le bouton rouge).
             </p>
           </div>
         </div>
