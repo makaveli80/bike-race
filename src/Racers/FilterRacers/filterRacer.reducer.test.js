@@ -4,12 +4,9 @@ import {
   searchRacersReduce
 } from './filterRacer.reducer';
 
+import { RACERS_FILTER } from '../racersFilter.fixtures';
+
 const SEARCHED_WORD = 'name';
-const CURRENT_RACERS_FILTER = {
-  indexPage: 2,
-  racersPerPage: 5,
-  searchedWord: ''
-};
 
 describe('searchRacers', () => {
   it('should return an "search racers" action', () => {
@@ -36,7 +33,7 @@ describe('searchRacers', () => {
 describe('searchRacersReduce', () => {
   it('should set "searchedWord" to current filter', () => {
     // when
-    const racersFilterUpdated = searchRacersReduce(CURRENT_RACERS_FILTER, SEARCHED_WORD);
+    const racersFilterUpdated = searchRacersReduce(RACERS_FILTER, SEARCHED_WORD);
     // then
     expect(racersFilterUpdated.searchedWord).toBe(SEARCHED_WORD);
   });

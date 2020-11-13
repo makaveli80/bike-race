@@ -5,12 +5,13 @@ import {
 } from './validateRacer.middleware';
 import validateRacer from './validateRacer';
 
+import { NEW_RACER } from '../racers.fixtures';
+
 jest.mock('./validateRacer');
 const fakeStore = { dispatch: jest.fn() };
 const fakeNext = jest.fn();
 
 const FAKE_TYPE = 'FAKE_TYPE';
-const NEW_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
 const ACTION_TO_NOT_VALIDATE = { type: FAKE_TYPE };
 const ACTION_TO_VALIDATE = {
   type: FAKE_TYPE,

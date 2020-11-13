@@ -4,9 +4,7 @@ import {
   addRacerReduce
 } from './addRacer.reducer';
 
-const EMPTY_RACERS = [];
-const FILLED_RACERS = [{ firstName: 'Corentin', lastName: 'Bachelet' }];
-const NEW_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
+import { NEW_RACER, NO_RACER, RACERS, RACERS_LENGTH } from '../racers.fixtures';
 
 describe('addRacer', () => {
   it('should return an "add racer" action', () => {
@@ -31,7 +29,7 @@ describe('addRacer', () => {
 describe('addRacerReduce', () => {
   it('should add a new racer to an empty list of racers', () => {
     // when
-    const racersUpdated = addRacerReduce(EMPTY_RACERS, NEW_RACER);
+    const racersUpdated = addRacerReduce(NO_RACER, NEW_RACER);
     // then
     expect(racersUpdated).toHaveLength(1);
     expect(racersUpdated).toContain(NEW_RACER);
@@ -39,15 +37,16 @@ describe('addRacerReduce', () => {
 
   it('should add a new racer to an already filled list of racers', () => {
     // when
-    const racersUpdated = addRacerReduce(FILLED_RACERS, NEW_RACER);
+    const racersUpdated = addRacerReduce(RACERS, NEW_RACER);
     // then
-    expect(racersUpdated).toHaveLength(2);
+    const totalRacersExpected = RACERS_LENGTH + 1;
+    expect(racersUpdated).toHaveLength(totalRacersExpected);
     expect(racersUpdated).toContain(NEW_RACER);
   });
 
   it('should add a new racer to the first place of the list', () => {
     // when
-    const racersUpdated = addRacerReduce(FILLED_RACERS, NEW_RACER);
+    const racersUpdated = addRacerReduce(RACERS, NEW_RACER);
     // then
     const firstRacer = racersUpdated[0];
     expect(firstRacer).toBe(NEW_RACER);

@@ -3,11 +3,7 @@ import { shallow } from 'enzyme';
 
 import ListRacers from './ListRacers';
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACERS = [RACER_1, RACER_2];
-
-const EMPTY_RACERS = [];
+import { NO_RACER, FILTERED_RACERS } from '../racers.fixtures';
 
 describe('<ListRacers/>', () => {
   it('should render shallowly', () => {
@@ -19,7 +15,7 @@ describe('<ListRacers/>', () => {
 
   it('should render shallowly when an empty list of racers', () => {
     // given
-    const props = { racers: EMPTY_RACERS };
+    const props = { racers: NO_RACER };
     // when
     const shallowComponent = shallow(<ListRacers {...props}/>);
     // then
@@ -28,7 +24,7 @@ describe('<ListRacers/>', () => {
 
   it('should render shallowly with a list of racers', () => {
     // given
-    const props = { racers: RACERS };
+    const props = { racers: FILTERED_RACERS };
     // when
     const shallowComponent = shallow(<ListRacers {...props}/>);
     // then

@@ -3,19 +3,25 @@ import getRacersNavigationSelector from './racersNavigation.selector';
 import getFilteredRacersSelector from './filteredRacers.selector';
 jest.mock('./filteredRacers.selector');
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const RACER_3 = { firstName: 'Baillet', lastName: 'Alexandre' };
-const RACERS = [RACER_1, RACER_2, RACER_3];
-const RACERS_EMPTY = [];
+import {
+  NO_RACER,
+  RACERS,
+  FILTERED_RACERS,
+  FILTERED_RACERS_WITH_SEARCH
+} from '../racers.fixtures';
+import {
+  RACERS_FILTER,
+  RACERS_NAVIGATION,
+  RACERS_FILTER_WITH_SEARCH,
+  RACERS_NAVIGATION_WITH_SEARCH,
+  RACERS_NAVIGATION_NO_RACER
+} from '../racersFilter.fixtures';
 
 describe('getRacersNavigationSelector', () => {
 
   describe('when searchedWord empty', () => {
-    const RACERS_FILTER = { indexPage: 1, racersPerPage: 2, searchedWord: '' };
-    const FILTERED_RACERS = [RACER_1, RACER_2];
     const STATE = { racers: RACERS, racersFilter: RACERS_FILTER };
-    const STATE_RACERS_EMPTY = { racers: RACERS_EMPTY, racersFilter: RACERS_FILTER };
+    const STATE_RACERS_EMPTY = { racers: NO_RACER, racersFilter: RACERS_FILTER };
 
     it('should return current index of list of racers', () => {
       // given
@@ -23,7 +29,7 @@ describe('getRacersNavigationSelector', () => {
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.currentIndex).toBe(1);
+      expect(racersNavigation.currentIndex).toBe(RACERS_NAVIGATION.currentIndex);
     });
 
     it('should return count of filtered racers', () => {
@@ -32,7 +38,7 @@ describe('getRacersNavigationSelector', () => {
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalFilteredRacers).toBe(2);
+      expect(racersNavigation.totalFilteredRacers).toBe(RACERS_NAVIGATION.totalFilteredRacers);
     });
 
     it('should return count of all racers', () => {
@@ -41,7 +47,7 @@ describe('getRacersNavigationSelector', () => {
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalRacers).toBe(3);
+      expect(racersNavigation.totalRacers).toBe(RACERS_NAVIGATION.totalRacers);
     });
 
     it('should return count of all pages', () => {
@@ -50,75 +56,74 @@ describe('getRacersNavigationSelector', () => {
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalPages).toBe(2);
+      expect(racersNavigation.totalPages).toBe(RACERS_NAVIGATION.totalPages);
     });
 
     it('should return all properties to 0 when an empty list of racers', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(RACERS_EMPTY);
+      getFilteredRacersSelector.mockReturnValue(NO_RACER);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE_RACERS_EMPTY);
       // then
-      expect(racersNavigation.currentIndex).toBe(0);
-      expect(racersNavigation.totalFilteredRacers).toBe(0);
-      expect(racersNavigation.totalRacers).toBe(0);
-      expect(racersNavigation.totalPages).toBe(0);
+      expect(racersNavigation.currentIndex).toBe(RACERS_NAVIGATION_NO_RACER.currentIndex);
+      expect(racersNavigation.totalFilteredRacers).toBe(RACERS_NAVIGATION_NO_RACER.totalFilteredRacers);
+      expect(racersNavigation.totalRacers).toBe(RACERS_NAVIGATION_NO_RACER.totalRacers);
+      expect(racersNavigation.totalPages).toBe(RACERS_NAVIGATION_NO_RACER.totalPages);
     });
   });
 
   describe('when searchedWord filled', () => {
-    const RACERS_FILTER = { indexPage: 1, racersPerPage: 2, searchedWord: 'Briois' };
+    const STATE = { racers: RACERS, racersFilter: RACERS_FILTER_WITH_SEARCH };
+
     const RACERS_FILTER_NO_RESULT_SEARCH = { indexPage: 1, racersPerPage: 2, searchedWord: 'Azerty' };
-    const FILTERED_RACERS = [RACER_1];
-    const STATE = { racers: RACERS, racersFilter: RACERS_FILTER };
     const STATE_NO_RESULT_SEARCH = { racers: RACERS, racersFilter: RACERS_FILTER_NO_RESULT_SEARCH };
 
     it('should return current index of list of racers', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS);
+      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS_WITH_SEARCH);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.currentIndex).toBe(1);
+      expect(racersNavigation.currentIndex).toBe(RACERS_NAVIGATION_WITH_SEARCH.currentIndex);
     });
 
     it('should return count of filtered racers', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS);
+      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS_WITH_SEARCH);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalFilteredRacers).toBe(1);
+      expect(racersNavigation.totalFilteredRacers).toBe(RACERS_NAVIGATION_WITH_SEARCH.totalFilteredRacers);
     });
 
     it('should return count of all racers', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS);
+      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS_WITH_SEARCH);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalRacers).toBe(1);
+      expect(racersNavigation.totalRacers).toBe(RACERS_NAVIGATION_WITH_SEARCH.totalRacers);
     });
 
     it('should return count of all pages', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS);
+      getFilteredRacersSelector.mockReturnValue(FILTERED_RACERS_WITH_SEARCH);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE);
       // then
-      expect(racersNavigation.totalPages).toBe(1);
+      expect(racersNavigation.totalPages).toBe(RACERS_NAVIGATION_WITH_SEARCH.totalPages);
     });
 
     it('should return all properties to 0 when an empty list of racers filtered', () => {
       // given
-      getFilteredRacersSelector.mockReturnValue(RACERS_EMPTY);
+      getFilteredRacersSelector.mockReturnValue(NO_RACER);
       // when
       const racersNavigation = getRacersNavigationSelector(STATE_NO_RESULT_SEARCH);
       // then
-      expect(racersNavigation.currentIndex).toBe(0);
-      expect(racersNavigation.totalFilteredRacers).toBe(0);
-      expect(racersNavigation.totalRacers).toBe(0);
-      expect(racersNavigation.totalPages).toBe(0);
+      expect(racersNavigation.currentIndex).toBe(RACERS_NAVIGATION_NO_RACER.currentIndex);
+      expect(racersNavigation.totalFilteredRacers).toBe(RACERS_NAVIGATION_NO_RACER.totalFilteredRacers);
+      expect(racersNavigation.totalRacers).toBe(RACERS_NAVIGATION_NO_RACER.totalRacers);
+      expect(racersNavigation.totalPages).toBe(RACERS_NAVIGATION_NO_RACER.totalPages);
     });
   });
 });

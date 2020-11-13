@@ -3,12 +3,11 @@ import { shallow } from 'enzyme';
 
 import NavigateRacers from './NavigateRacers';
 
-const RACERS_NAVIGATION_MIDDLE_PAGE = {
-  currentIndex: 2,
-  totalFilteredRacers: 3,
-  totalRacers: 5,
-  totalPages: 2
-};
+import {
+  RACERS_NAVIGATION_FIRST_PAGE,
+  RACERS_NAVIGATION_MIDDLE_PAGE,
+  RACERS_NAVIGATION_LAST_PAGE
+} from '../racersFilter.fixtures';
 
 describe('<NavigateRacers/>', () => {
   it('should render shallowly', () => {
@@ -19,12 +18,6 @@ describe('<NavigateRacers/>', () => {
   });
 
   describe('when at first page', () => {
-    const RACERS_NAVIGATION_FIRST_PAGE = {
-      currentIndex: 1,
-      totalFilteredRacers: 3,
-      totalRacers: 7,
-      totalPages: 3
-    };
     const props = { racersNavigation: RACERS_NAVIGATION_FIRST_PAGE };
     const shallowComponentFirstPage = shallow(<NavigateRacers {...props}/>);
 
@@ -44,12 +37,6 @@ describe('<NavigateRacers/>', () => {
   });
 
   describe('when at middle page', () => {
-    const RACERS_NAVIGATION_MIDDLE_PAGE = {
-      currentIndex: 2,
-      totalFilteredRacers: 3,
-      totalRacers: 7,
-      totalPages: 3
-    };
     const props = { racersNavigation: RACERS_NAVIGATION_MIDDLE_PAGE };
     const shallowComponentMiddlePage = shallow(<NavigateRacers {...props}/>);
 
@@ -69,12 +56,6 @@ describe('<NavigateRacers/>', () => {
   });
 
   describe('when at last page', () => {
-    const RACERS_NAVIGATION_LAST_PAGE = {
-      currentIndex: 3,
-      totalFilteredRacers: 3,
-      totalRacers: 7,
-      totalPages: 3
-    };
     const props = { racersNavigation: RACERS_NAVIGATION_LAST_PAGE };
     const shallowComponentLastPage = shallow(<NavigateRacers {...props}/>);
 

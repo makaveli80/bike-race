@@ -8,15 +8,8 @@ import ListRacers from './ListRacers/ListRacers';
 import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
 
-const RACER_1 = { firstName: 'Jean-Luc', lastName: 'Briois' };
-const RACER_2 = { firstName: 'Corentin', lastName: 'Bachelet' };
-const MAPPED_FILTERED_RACERS = [RACER_1, RACER_2];
-const MAPPED_RACERS_NAVIGATION = {
-  currentIndex: 1,
-  totalFilteredRacers: 2,
-  totalRacers: 3,
-  totalPages: 2
-};
+import { FILTERED_RACERS } from './racers.fixtures';
+import { RACERS_NAVIGATION } from './racersFilter.fixtures';
 
 describe('<Racers/>', () => {
   let shallowComponent;
@@ -36,8 +29,8 @@ describe('<Racers/>', () => {
     incrementPageRacers,
     decrementPageRacers,
     searchRacers,
-    filteredRacers: MAPPED_FILTERED_RACERS,
-    racersNavigation: MAPPED_RACERS_NAVIGATION
+    filteredRacers: FILTERED_RACERS,
+    racersNavigation: RACERS_NAVIGATION
   }
 
   beforeEach(() => {

@@ -2,12 +2,14 @@ import _ from 'lodash';
 
 import validateRacer from './validateRacer';
 
+import { NEW_RACER } from '../racers.fixtures';
+
 const EMPTY_RACER = {};
 const RACER_WITHOUT_FIRST_NAME = { lastName: 'Briois' };
 const RACER_WITHOUT_LAST_NAME = { firstName: 'Jean-Luc' };
 const RACER_WITH_FIRST_NAME_TOO_SHORT = { firstName: 'Je', lastName: 'Briois' };
 const RACER_WITH_LAST_NAME_TOO_SHORT = { firstName: 'Jean-Luc', lastName: 'Br' };
-const VALID_RACER = { firstName: 'Jean-Luc', lastName: 'Briois' };
+const VALID_RACER = NEW_RACER;
 
 describe('validateRacer', () => {
   it('should return an error when racer empty', () => {
