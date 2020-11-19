@@ -1,0 +1,53 @@
+@block confirm-deletion-racer {
+  @element delete-button {
+    @extend %show-racer__button;
+    @apply bg-blue-500;
+    @apply text-white;
+    &:hover {
+      @apply bg-blue-700;
+    }
+  }
+
+  @element confirm-delete-button {
+    @extend %show-racer__button;
+    @apply bg-red-500;
+    @apply text-white;
+    &:hover {
+        @apply bg-red-700;
+    }
+  }
+}
+
+%show-racer__button {
+  @apply rounded-md;
+  @apply px-2 pt-0 pb-1;
+  @apply font-bold;
+  &:focus {
+    @apply outline-none;
+  }
+}
+
+@block delete-button {
+  @element icon {
+    @extend %button__icon;
+  }
+}
+
+%button__icon {
+  @apply inline-block;
+}
+
+@block confirm-delete-button {
+  @element icon {
+    @extend %button__icon;
+  }
+
+  @element helper {
+    @apply absolute;
+    @apply bg-blue-100;
+    @apply border border-blue-600 rounded-md;
+    @apply font-normal text-sm text-center text-blue-700;
+    @apply w-32;
+    @apply ml-2 py-1 px-2;
+  }
+}
