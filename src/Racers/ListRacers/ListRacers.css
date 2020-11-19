@@ -5,6 +5,7 @@
     @apply rounded-t-lg;
     @apply p-4;
     @apply font-bold;
+    @apply flex flex-row;
   }
 
   @element racers {
@@ -18,5 +19,21 @@
   @element no-racer {
     @apply border border-gray-400;
     @apply p-4;
+  }
+}
+
+@block header {
+  @element name {
+    @apply flex-none w-6/12;
+    @apply font-bold;
+  }
+
+  @element category {
+    @apply flex-none w-4/12;
+  }
+
+  @element actions {
+    @apply flex-none w-2/12;
+    @apply relative;
   }
 }
