@@ -1,4 +1,22 @@
 @block show-racer {
+  @apply flex flex-row;
+
+  @element name {
+    @apply flex-none w-6/12;
+    @apply font-bold;
+  }
+
+  @element category {
+    @apply flex-none w-4/12;
+  }
+
+  @element actions {
+    @apply flex-none w-2/12;
+    @apply relative;
+  }
+}
+
+@block actions {
   @element delete-button {
     @extend %show-racer__button;
     @apply bg-blue-500;
@@ -7,7 +25,8 @@
       @apply bg-blue-700;
     }
   }
-  @element confirm-button {
+
+  @element confirm-delete-button {
     @extend %show-racer__button;
     @apply bg-red-500;
     @apply text-white;
@@ -17,29 +36,33 @@
   }
 }
 
+%show-racer__button {
+  @apply rounded-md;
+  @apply px-2 pt-0 pb-1;
+  @apply font-bold;
+  &:focus {
+    @apply outline-none;
+  }
+}
+
 @block delete-button {
   @element icon {
     @extend %button__icon;
   }
 }
 
-@block confirm-button {
-  @element count-down {
-    @apply font-normal text-sm
-  }
+@block confirm-delete-button {
   @element icon {
     @extend %button__icon;
-    @apply ml-2;
   }
-}
 
-%show-racer__button {
-  @apply float-right;
-  @apply rounded-md;
-  @apply px-2 pt-0 pb-1;
-  @apply font-bold;
-  &:focus {
-    @apply outline-none;
+  @element helper {
+    @apply absolute;
+    @apply bg-blue-100;
+    @apply border border-blue-600 rounded-md;
+    @apply font-normal text-sm text-center text-blue-700;
+    @apply w-32;
+    @apply ml-2 py-1 px-2;
   }
 }
 

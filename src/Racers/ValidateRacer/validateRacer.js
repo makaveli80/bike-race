@@ -13,9 +13,16 @@ const lastNameMessages = {
   'any.required': 'Le nom est requis'
 }
 
+const categoryMessages = {
+  'string.base': 'La catégorie doit être du texte',
+  'string.min': 'La catégorie doit avoir {#limit} caractères minimum',
+  'any.required': 'La catégorie est requise'
+}
+
 const schemaRacer = Joi.object().keys({
   firstName: Joi.string().min(3).required().messages(firstNameMessages),
-  lastName: Joi.string().min(3).required().messages(lastNameMessages)
+  lastName: Joi.string().min(3).required().messages(lastNameMessages),
+  category: Joi.string().min(3).required().messages(categoryMessages)
 });
 
 const validateRacer = (racer) => {

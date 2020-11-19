@@ -3,7 +3,7 @@ import { MdDelete, MdWarning } from 'react-icons/md';
 
 import './ShowRacer.css'
 
-const DEFAULT_RACER = { id: 1, firstName: '', lastName: '' };
+const DEFAULT_RACER = { id: 1, firstName: '', lastName: '', category: '' };
 const DEFAULT_ON_DELETE_RACER = () => {};
 const DEFAULT_PROPS = { racer: DEFAULT_RACER, onDeleteRacer: DEFAULT_ON_DELETE_RACER };
 
@@ -23,12 +23,13 @@ class ShowRacer extends React.Component {
   }
 
   render() {
-    const { racer: { lastName, firstName }} = this.props;
+    const { racer: { lastName, firstName, category }} = this.props;
 
     return (
-      <div>
-        {lastName} {firstName}
-        {this.renderDeleteButton()}
+      <div className="show-racer">
+        <div className="show-racer__name">{lastName} {firstName}</div>
+        <div className="show-racer__category">{category}</div>
+        <div className="show-racer__actions">{this.renderDeleteButton()}</div>
       </div>
     );
   }
@@ -38,24 +39,28 @@ class ShowRacer extends React.Component {
 
     const deleteButton = (
       <button onClick={this.handleClickDeleteButton}
-          className="show-racer__delete-button">
+          className="actions__delete-button">
         <MdDelete className="delete-button__icon" />
       </button>
     );
 
-    const confirmButton = (
-      <button onClick={this.handleClickConfirmButton}
-          className="show-racer__confirm-button">
-        <span className="confirm-button__count-down">
-          Cliquez à nouveau pour supprimer ({countDown})
+    const confirmDeleteButton = (
+      <div>
+        <button onClick={this.handleClickConfirmButton}
+            className="actions__confirm-delete-button">
+          <MdWarning className="confirm-delete-button__icon" />
+          ({countDown})
+        </button>
+
+        <span className="confirm-delete-button__helper">
+          Cliquez de nouveau pour supprimer
         </span>
-        <MdWarning className="confirm-button__icon" />
-      </button>
+      </div>
     );
 
     return !confirmationMode
       ? deleteButton
-      : confirmButton;
+      : confirmDeleteButton;
   }
 
   handleClickDeleteButton() {

@@ -22,7 +22,7 @@ const actions = {
   onDeleteRacer: action('onDeleteRacer')
 }
 
-const props = { racer: RACER_1}
+const props = { racer: RACER_1 };
 
 storiesOf('ShowRacer', module)
   .addDecorator(withTemplate)

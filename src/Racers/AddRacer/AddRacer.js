@@ -24,6 +24,14 @@ export const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
             placeholder="Briois"/>
       </div>
 
+      <div className="input-text">
+        <label htmlFor="category" className="input-text__label">
+          Catégorie
+        </label>
+        <Field id="category" name="category" component={InputTextField}
+            placeholder="Sénior"/>
+      </div>
+
       <button type="submit" className="submit-button"
           disabled={invalid || submitting || pristine}>
         <MdPersonAdd className="submit-button__icon" />
