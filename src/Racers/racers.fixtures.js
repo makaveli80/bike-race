@@ -1,10 +1,10 @@
-export const NEW_RACER = { firstName: 'Bellard', lastName: 'Romain' };
+export const NEW_RACER = { firstName: 'Bellard', lastName: 'Romain', category: '15-16 (CA)' };
 
-export const RACER_1 = { id: 1, firstName: 'Jean-Luc', lastName: 'Briois' };
-export const RACER_2 = { id: 2, firstName: 'Corentin', lastName: 'Bachelet' };
-export const RACER_3 = { id: 3, firstName: 'Baillet', lastName: 'Alexeandre' };
-export const RACER_4 = { id: 4, firstName: 'Clément', lastName: 'Barde' };
-export const RACER_5 = { id: 5, firstName: 'Beauvisage', lastName: 'Romain' };
+export const RACER_1 = { id: 1, firstName: 'Jean-Luc', lastName: 'Briois', category: '40-49 (VA)' };
+export const RACER_2 = { id: 2, firstName: 'Corentin', lastName: 'Bachelet', category: '20-29 (SA)' };
+export const RACER_3 = { id: 3, firstName: 'Baillet', lastName: 'Alexeandre', category: '30-39 (SB)' };
+export const RACER_4 = { id: 4, firstName: 'Clément', lastName: 'Barde', category: '40-49 (VA)' };
+export const RACER_5 = { id: 5, firstName: 'Beauvisage', lastName: 'Romain', category: '30-39 (SB)' };
 
 export const NO_RACER = [];
 export const RACERS = [RACER_1, RACER_2, RACER_3, RACER_4, RACER_5];
