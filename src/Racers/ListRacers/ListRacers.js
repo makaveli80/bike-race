@@ -16,6 +16,7 @@ const ListRacers = ({ children = DEFAULT_CHILDREN }) => {
 const renderHeader = (
   <div className="list-racers__header">
     <div className="header__name">Coureurs</div>
+    <div className="header__team">Equipes</div>
     <div className="header__category">Catégories</div>
     <div className="header__actions">Actions</div>
   </div>

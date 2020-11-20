@@ -2,12 +2,16 @@
   @apply flex flex-row;
 
   @element name {
-    @apply flex-none w-6/12;
+    @apply flex-none w-4/12;
     @apply font-bold;
   }
 
+  @element team {
+    @apply flex-none w-3/12;
+  }
+
   @element category {
-    @apply flex-none w-4/12;
+    @apply flex-none w-3/12;
   }
 
   @element actions {
