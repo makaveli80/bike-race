@@ -1,7 +1,9 @@
 import { ADD_RACER, addRacerReduce } from './AddRacer/addRacer.reducer';
 import { DELETE_RACER, deleteRacerReduce } from './DeleteRacer/deleteRacer.reducer';
 
-const INITIAL_RACERS = [];
+import { RACERS } from './racers.fixtures';
+
+const INITIAL_RACERS = RACERS;
 
 export const racersReducer = (state = INITIAL_RACERS, action) => {
   switch (action.type) {

@@ -10,12 +10,13 @@ export const ShowRacer = ({
   racer = DEFAULT_RACER,
   onDeleteRacer = DEFAULT_ON_DELETE_RACER
 }) => {
-  const { lastName, firstName,category  } = racer;
+  const { lastName, firstName, category, team = ''  } = racer;
   const propsConfirmDeletionRacer = { racer, onDeleteRacer };
 
   return (
     <div className="show-racer">
       <div className="show-racer__name">{lastName} {firstName}</div>
+      <div className="show-racer__team">{team}</div>
       <div className="show-racer__category">{category}</div>
       <div className="show-racer__actions">
         <ConfirmDeletionRacer {...propsConfirmDeletionRacer} />
