@@ -19,10 +19,16 @@ const categoryMessages = {
   'any.required': 'La catégorie est requise'
 }
 
+const teamMessages = {
+  'string.base': 'L\'équipe doit être du texte',
+  'string.min': 'L\'équipe doit avoir {#limit} caractères minimum'
+}
+
 const schemaRacer = Joi.object().keys({
   firstName: Joi.string().min(3).required().messages(firstNameMessages),
   lastName: Joi.string().min(3).required().messages(lastNameMessages),
-  category: Joi.string().min(3).required().messages(categoryMessages)
+  category: Joi.string().min(3).required().messages(categoryMessages),
+  team: Joi.string().min(3).messages(categoryMessages)
 });
 
 const validateRacer = (racer) => {
