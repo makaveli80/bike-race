@@ -27,36 +27,6 @@ describe('<AddRacer/> with no "redux-form" wrapper', () => {
   });
 });
 
-describe('InputTextField for <Field/> "redux-form" component', () => {
-  it('should render shallowly', () => {
-    // given
-    const props = {
-      id: 'firstName',
-      placeholder: 'Jean-Luc',
-      input: { name: 'firstName' },
-      meta: {}
-    };
-    // when
-    const shallowComponent = shallow(<InputTextField {...props}/>);
-    // then
-    expect(shallowComponent).toBeDefined();
-  });
-
-  it('should render shallowly when a field error', () => {
-    // given
-    const props = {
-      id: 'firstName',
-      placeholder: 'Jean-Luc',
-      input: { name: 'firstName' },
-      meta: { touched: true, error: 'Le prénom est requis' }
-    };
-    // when
-    const shallowComponent = shallow(<InputTextField {...props}/>);
-    // then
-    expect(shallowComponent).toBeDefined();
-  });
-});
-
 describe('"onSubmitSuccess" property for "redux-form"', () => {
   it('should reset form on submit success', () => {
     // given

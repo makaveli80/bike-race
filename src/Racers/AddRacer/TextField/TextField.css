@@ -1,0 +1,18 @@
+@block text-field {
+  @apply mb-6;
+
+  @element input {
+    @apply appearance-none border rounded-md w-full;
+    @apply text-gray-700;
+    @apply py-2 px-3;
+
+    &:focus {
+      @apply outline-none shadow-outline;
+    }
+  }
+
+  @element error {
+    @apply h-6;
+    @apply text-sm font-medium text-red-500;
+  }
+}
