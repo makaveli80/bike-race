@@ -1,0 +1,24 @@
+@block auto-complete {
+  @element control {
+    @apply border border-gray-300 rounded-md !important;
+    @apply rounded-md;
+    @apply p-1;
+
+    @modifier is-focused {
+      @apply shadow-outline !important;
+    }
+  }
+
+  @element clear-indicator {
+    @apply cursor-pointer;
+  }
+
+  @element dropdown-indicator {
+    @apply cursor-pointer;
+  }
+
+  @element error {
+    @apply h-6;
+    @apply text-sm font-medium text-red-500;
+  }
+}
