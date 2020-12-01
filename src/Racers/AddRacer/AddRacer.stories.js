@@ -7,6 +7,11 @@ import { action } from '@storybook/addon-actions';
 
 import AddRacer from './AddRacer';
 
+import {
+  EXISTING_CATEGORIES,
+  EXISTING_TEAMS
+} from '../racers.fixtures';
+
 const withReduxFormAndDevTools = (Story) => {
   const reducers = { form: formReducer };
   const reducer = combineReducers(reducers);
@@ -27,10 +32,15 @@ const withReduxFormAndDevTools = (Story) => {
   );
 };
 
+const props = {
+  categories: EXISTING_CATEGORIES,
+  teams: EXISTING_TEAMS
+};
+
 const actions = {
   onSubmit: action('onSubmit')
-}
+};
 
 storiesOf('AddRacer', module)
   .addDecorator(withReduxFormAndDevTools)
-  .add('normal', () => <AddRacer {...actions}/>);
+  .add('normal', () => <AddRacer {...props} {...actions}/>);

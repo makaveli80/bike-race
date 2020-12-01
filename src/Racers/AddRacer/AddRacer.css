@@ -1,4 +1,4 @@
-@block input-text {
+@block racer-field {
   @apply mb-6;
 
   @element label {
@@ -6,24 +6,9 @@
     @apply text-gray-700 text-lg font-bold;
     @apply mb-2;
   }
-
-  @element field {
-    @apply appearance-none border rounded-md w-full;
-    @apply text-gray-700;
-    @apply py-2 px-3;
-
-    &:focus {
-      @apply outline-none shadow-outline;
-    }
-  }
-
-  @element error {
-    @apply h-6;
-    @apply text-sm font-medium text-red-500;
-  }
 }
 
-@block submit-button {
+@block submit-racer {
   @apply bg-blue-500 rounded-md;
   @apply text-white font-bold;
   @apply w-full;
