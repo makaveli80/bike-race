@@ -5,6 +5,8 @@ import { action } from '@storybook/addon-actions';
 
 import AutoCompleteField from './AutoCompleteField';
 
+import { EXISTING_CATEGORIES } from '../../racers.fixtures';
+
 const withTemplate = (Story) => {
   return (
     <div className="container mx-auto">
@@ -19,7 +21,7 @@ const withTemplate = (Story) => {
 
 const propsWithoutError = {
   id: 'category',
-  options: ['40-49 (VA)', '20-29 (SA)'],
+  options: EXISTING_CATEGORIES,
   placeholder: 'Sénior',
   formatCreateLabel: (inputValue) => `Créer la catégorie ${inputValue}`,
   input: {
@@ -31,7 +33,7 @@ const propsWithoutError = {
 
 const propsWithError = {
   id: 'category',
-  options: ['40-49 (VA)', '20-29 (SA)'],
+  options: EXISTING_CATEGORIES,
   placeholder: 'Sénior',
   formatCreateLabel: (inputValue) => `Créer la catégorie ${inputValue}`,
   input: {

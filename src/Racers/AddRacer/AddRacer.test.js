@@ -4,10 +4,15 @@ import { reset } from 'redux-form';
 
 import { AddRacer, InputTextField, onSubmitSuccess } from './AddRacer';
 
+import { EXISTING_CATEGORIES } from '../racers.fixtures';
+
 describe('<AddRacer/> with no "redux-form" wrapper', () => {
   it('should render shallowly', () => {
     // given
-    const props = { handleSubmit: jest.fn() };
+    const props = {
+      handleSubmit: jest.fn(),
+      categories: EXISTING_CATEGORIES
+    };
     // when
     const shallowComponent = shallow(<AddRacer {...props}/>);
     // then
@@ -18,7 +23,8 @@ describe('<AddRacer/> with no "redux-form" wrapper', () => {
     // given
     const props = {
       handleSubmit: jest.fn(),
-      pristine: true
+      pristine: true,
+      categories: EXISTING_CATEGORIES
     };
     // when
     const shallowComponent = shallow(<AddRacer {...props}/>);

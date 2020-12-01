@@ -8,10 +8,7 @@ import TextField from './TextField/TextField';
 import AutoCompleteField from './AutoCompleteField/AutoCompleteField';
 import validateRacer from '../ValidateRacer/validateRacer';
 
-export const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
-  const formatCreateLabel = (inputValue) => `Créer la catégorie ${inputValue}`;
-  const options = ['40-49 (VA)', '20-29 (SA)'];
-
+export const AddRacer = ({ handleSubmit, invalid, submitting, pristine, categories = [] }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="racer-field">
@@ -36,7 +33,8 @@ export const AddRacer = ({ handleSubmit, invalid, submitting, pristine }) => {
         </label>
         <Field id="category" name="category" component={AutoCompleteField}
             placeholder="Sénior"
-            formatCreateLabel={formatCreateLabel} options={options}/>
+            options={categories}
+            formatCreateLabel={(inputValue) => `Créer la catégorie ${inputValue}`} />
       </div>
 
       <div className="racer-field">

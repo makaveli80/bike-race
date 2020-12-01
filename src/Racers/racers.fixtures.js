@@ -1,11 +1,16 @@
-export const NEW_RACER =              { firstName: 'Bellard',  lastName: 'Romain',        category: '15-16 (CA)', team: '59 St Amand' };
-export const NEW_RACER_WITHOUT_TEAM = { firstName: 'Bellette', lastName: 'Jean-Philippe', category: '30-39 (SB)' };
+export const CATEGORY_15_CA = '15-16 (CA)';
+export const CATEGORY_20_SA = '20-29 (SA)';
+export const CATEGORY_30_SB = '30-39 (SB)';
+export const CATEGORY_40_VA = '40-49 (VA)';
 
-export const RACER_1 = { id: 1, firstName: 'Jean-Luc',   lastName: 'Briois',     category: '40-49 (VA)', team: 'Doullens RC' };
-export const RACER_2 = { id: 2, firstName: 'Corentin',   lastName: 'Bachelet',   category: '20-29 (SA)' };
-export const RACER_3 = { id: 3, firstName: 'Baillet',    lastName: 'Alexeandre', category: '30-39 (SB)', team: 'Amiens C Team' };
-export const RACER_4 = { id: 4, firstName: 'Clément',    lastName: 'Barde',      category: '40-49 (VA)', team: 'Rivery Sports C' };
-export const RACER_5 = { id: 5, firstName: 'Beauvisage', lastName: 'Romain',     category: '30-39 (SB)', team: 'Les Déjantés' };
+export const NEW_RACER =              { firstName: 'Bellard',  lastName: 'Romain',        category: CATEGORY_15_CA, team: '59 St Amand' };
+export const NEW_RACER_WITHOUT_TEAM = { firstName: 'Bellette', lastName: 'Jean-Philippe', category: CATEGORY_30_SB };
+
+export const RACER_1 = { id: 1, firstName: 'Jean-Luc',   lastName: 'Briois',     category: CATEGORY_40_VA, team: 'Doullens RC' };
+export const RACER_2 = { id: 2, firstName: 'Corentin',   lastName: 'Bachelet',   category: CATEGORY_20_SA };
+export const RACER_3 = { id: 3, firstName: 'Baillet',    lastName: 'Alexeandre', category: CATEGORY_30_SB, team: 'Amiens C Team' };
+export const RACER_4 = { id: 4, firstName: 'Clément',    lastName: 'Barde',      category: CATEGORY_40_VA, team: 'Rivery Sports C' };
+export const RACER_5 = { id: 5, firstName: 'Beauvisage', lastName: 'Romain',     category: CATEGORY_30_SB, team: 'Les Déjantés' };
 
 export const NO_RACER = [];
 export const RACERS = [RACER_1, RACER_2, RACER_3, RACER_4, RACER_5];
@@ -22,3 +27,6 @@ export const FILTERED_RACERS = FILTERED_RACERS_FIRST_PAGE;
 export const FILTERED_RACERS_LENGTH = FILTERED_RACERS_FIRST_PAGE_LENGTH;
 
 export const FILTERED_RACERS_WITH_SEARCH = [RACER_1];
+
+export const EXISTING_CATEGORIES = [CATEGORY_20_SA, CATEGORY_30_SB, CATEGORY_40_VA];
+export const EXISTING_CATEGORIES_LENGTH = EXISTING_CATEGORIES.length;

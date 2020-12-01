@@ -9,7 +9,7 @@ import NavigateRacers from './NavigateRacers/NavigateRacers';
 import SearchRacers from './SearchRacers/SearchRacers';
 import ShowRacer from './ShowRacer/ShowRacer';
 
-import { FILTERED_RACERS } from './racers.fixtures';
+import { FILTERED_RACERS, EXISTING_CATEGORIES } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
 
 describe('<Racers/>', () => {
@@ -34,7 +34,8 @@ describe('<Racers/>', () => {
     searchRacers,
     deleteRacer,
     filteredRacers: FILTERED_RACERS,
-    racersNavigation: RACERS_NAVIGATION
+    racersNavigation: RACERS_NAVIGATION,
+    categories: EXISTING_CATEGORIES
   }
 
   beforeEach(() => {
@@ -60,6 +61,13 @@ describe('<Racers/>', () => {
   });
 
   describe('<AddRacer> interactions', () => {
+    it('should transmit "categories" props to <AddRacer> component', () => {
+      // when
+      const categoriesProps = shallowComponent.find(AddRacer).first().prop('categories');
+      // then
+      expect(categoriesProps).toBeDefined();
+    });
+
     it('should launch an "addRacer" action when a "submit" event launched from component <AddRacer>', () => {
       // when
       shallowComponent.find(AddRacer).first().simulate('submit', {});
