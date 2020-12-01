@@ -7,7 +7,10 @@ import { action } from '@storybook/addon-actions';
 
 import AddRacer from './AddRacer';
 
-import { EXISTING_CATEGORIES } from '../racers.fixtures';
+import {
+  EXISTING_CATEGORIES,
+  EXISTING_TEAMS
+} from '../racers.fixtures';
 
 const withReduxFormAndDevTools = (Story) => {
   const reducers = { form: formReducer };
@@ -30,7 +33,8 @@ const withReduxFormAndDevTools = (Story) => {
 };
 
 const props = {
-  categories: EXISTING_CATEGORIES
+  categories: EXISTING_CATEGORIES,
+  teams: EXISTING_TEAMS
 };
 
 const actions = {

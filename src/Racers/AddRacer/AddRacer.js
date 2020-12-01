@@ -8,7 +8,14 @@ import TextField from './TextField/TextField';
 import AutoCompleteField from './AutoCompleteField/AutoCompleteField';
 import validateRacer from '../ValidateRacer/validateRacer';
 
-export const AddRacer = ({ handleSubmit, invalid, submitting, pristine, categories = [] }) => {
+export const AddRacer = ({
+  handleSubmit,
+  invalid,
+  submitting,
+  pristine,
+  categories = [],
+  teams = []
+}) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="racer-field">
@@ -41,8 +48,10 @@ export const AddRacer = ({ handleSubmit, invalid, submitting, pristine, categori
         <label htmlFor="team" className="racer-field__label">
           Equipe
         </label>
-        <Field id="team" name="team" component={TextField}
-            placeholder="RC Doullens"/>
+        <Field id="team" name="team" component={AutoCompleteField}
+            placeholder="RC Doullens"
+            options={teams}
+            formatCreateLabel={(inputValue) => `Créer l'équipe ${inputValue}`}/>
       </div>
 
       <button type="submit" className="submit-racer"
