@@ -1,10 +1,17 @@
 import _ from 'lodash';
 
-const getExistingCategoriesSelector = ({ racers }) => {
+export const getExistingCategoriesSelector = ({ racers }) => {
   return _(racers)
     .map('category')
     .uniq()
+    .compact()
     .value();
 }
 
-export default getExistingCategoriesSelector;
+export const getExistingTeamsSelector = ({ racers }) => {
+  return _(racers)
+    .map('team')
+    .uniq()
+    .compact()
+    .value();
+}
