@@ -31,6 +31,19 @@ const propsWithoutError = {
   meta: {}
 }
 
+const propsWithDefaultValue = {
+  id: 'category',
+  options: EXISTING_CATEGORIES,
+  placeholder: 'Sénior',
+  formatCreateLabel: (inputValue) => `Créer la catégorie ${inputValue}`,
+  input: {
+    value: '30-39 (SB)',
+    onChange: action('onChange'),
+    onBlur: action('onBlur')
+  },
+  meta: {}
+}
+
 const propsWithError = {
   id: 'category',
   options: EXISTING_CATEGORIES,
@@ -46,4 +59,5 @@ const propsWithError = {
 storiesOf('AutoCompleteField', module)
   .addDecorator(withTemplate)
   .add('without error', () => <AutoCompleteField {...propsWithoutError}/>)
+  .add('with default value', () => <AutoCompleteField {...propsWithDefaultValue}/>)
   .add('with error', () => <AutoCompleteField {...propsWithError}/>);

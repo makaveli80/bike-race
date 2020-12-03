@@ -35,7 +35,7 @@ export const AddRacer = ({
       </div>
 
       <div className="racer-field">
-        <label htmlFor="category" className="input-racer__label">
+        <label htmlFor="category" className="racer-field__label">
           Catégorie
         </label>
         <Field id="category" name="category" component={AutoCompleteField}
