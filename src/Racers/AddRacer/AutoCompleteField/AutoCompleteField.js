@@ -12,6 +12,7 @@ const AutoCompleteField = ({
   meta: { touched, error }
 }) => {
   const formattedOptions = options.map((option) => ({ label: option, value: option }));
+  const value = (input.value === '') ? null : formattedOptions.find(option => option.value === input.value);
   const onChange = (option) => input.onChange(option ? option.value : '');
   const onBlur = () => input.onBlur(input.value);
 
@@ -20,6 +21,7 @@ const AutoCompleteField = ({
       <CreatableSelect
         isClearable
         id={id}
+        value={value}
         options={formattedOptions}
         placeholder={placeholder}
         formatCreateLabel={formatCreateLabel}
