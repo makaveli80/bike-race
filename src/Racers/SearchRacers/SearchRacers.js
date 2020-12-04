@@ -19,7 +19,7 @@ export const SearchRacers = ({ handleSubmit, handleChange }) => {
           placeholder="doullens"/>
       <div className="search-racers__help">
         Saisir un nom, une catégorie ou une équipe pour filtrer<br/>
-        La recherche n'est pas sensible aux majuscules
+        La recherche n'est pas sensible aux majuscules ou aux accents
       </div>
     </form>
   );
