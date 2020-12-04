@@ -15,9 +15,11 @@ export const SearchRacers = ({ handleSubmit, handleChange }) => {
           component="input"
           type="text"
           className="search-racers__input-words"
-          onChange={handleChange}/>
+          onChange={handleChange}
+          placeholder="doullens"/>
       <div className="search-racers__help">
-        Saisir un nom
+        Saisir un nom, une catégorie ou une équipe pour filtrer<br/>
+        La recherche n'est pas sensible aux majuscules ou aux accents
       </div>
     </form>
   );
