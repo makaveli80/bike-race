@@ -7,7 +7,8 @@ import {
   RACER_1,
   RACER_2,
   RACER_3,
-  RACER_4
+  RACER_4,
+  RACER_5
 } from '../racers.fixtures';
 
 const EMPTY_SEARCHED_WORD = '';
@@ -17,6 +18,7 @@ const SEARCHED_WORD_COMMON = 'ean';
 const SEARCHED_INSENTIVE_CASE = 'BRIOIS';
 const SEARCHED_CATEGORY = 'va';
 const SEARCHED_TEAM = 'doullens';
+const SEARCHED_NO_ACCENT = 'dejantes';
 
 describe('searcRacers', () => {
   it('should return list of all racers if search word is empty', () => {
@@ -75,5 +77,13 @@ describe('searcRacers', () => {
     expect(searchedRacers).toHaveLength(2);
     expect(searchedRacers).toContain(RACER_1);
     expect(searchedRacers).toContain(RACER_4);
+  });
+
+  it('should return list of racers containing searched word without regarding accent', () => {
+    // when
+    const searchedRacers = searchRacers(RACERS, SEARCHED_NO_ACCENT);
+    // then
+    expect(searchedRacers).toHaveLength(1);
+    expect(searchedRacers).toContain(RACER_5);
   });
 });
