@@ -12,8 +12,8 @@ import {
 } from '../racersFilter.fixtures';
 
 const actions = {
-  handleIncrementPageRacers: action('handleIncrementPageRacers'),
-  handleDecrementPageRacers: action('handleDecrementPageRacers')
+  onIncrementPageRacers: action('onIncrementPageRacers'),
+  onDecrementPageRacers: action('onDecrementPageRacers')
 }
 
 const propsFirstPage = { racersNavigation: RACERS_NAVIGATION_FIRST_PAGE };
