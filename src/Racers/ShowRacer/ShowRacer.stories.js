@@ -24,6 +24,6 @@ const actions = {
 
 const props = { racer: RACER_1 };
 
-storiesOf('ShowRacer', module)
+storiesOf('Racers/List Racers/ShowRacer', module)
   .addDecorator(withTemplate)
-  .add('normal', () => <ShowRacer {...props} {...actions}/>);
+  .add('default component', () => <ShowRacer {...props} {...actions}/>);

@@ -18,7 +18,7 @@ const withReduxFormAndDevTools = (Story) => {
     <Provider store={store}>
       <div className="container mx-auto">
         <div className="flex flex-row">
-          <div className="w-1/4">
+          <div className="w-1/3">
             <Story />
           </div>
         </div>
@@ -32,6 +32,6 @@ const actions = {
   onChange: action('onChange')
 }
 
-storiesOf('SearchRacers', module)
+storiesOf('Racers/Search Racers/SearchRacers', module)
   .addDecorator(withReduxFormAndDevTools)
-  .add('normal', () => <SearchRacers {...actions}/>);
+  .add('default component', () => <SearchRacers {...actions}/>);

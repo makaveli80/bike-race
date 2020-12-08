@@ -13,6 +13,6 @@ const withTemplate = (Story) => {
   );
 }
 
-storiesOf('RacersSumary', module)
+storiesOf('Racers/RacersSumary', module)
   .addDecorator(withTemplate)
-  .add('normal', () => <RacersSumary/>);
+  .add('default component', () => <RacersSumary/>);

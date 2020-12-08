@@ -41,6 +41,6 @@ const actions = {
   onSubmit: action('onSubmit')
 };
 
-storiesOf('AddRacer', module)
+storiesOf('Racers/Add Racer/AddRacer', module)
   .addDecorator(withReduxFormAndDevTools)
-  .add('normal', () => <AddRacer {...props} {...actions}/>);
+  .add('default component', () => <AddRacer {...props} {...actions}/>);
