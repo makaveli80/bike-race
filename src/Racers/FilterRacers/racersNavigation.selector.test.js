@@ -1,5 +1,4 @@
 import getRacersNavigationSelector from './racersNavigation.selector';
-
 import getFilteredRacersSelector from './filteredRacers.selector';
 jest.mock('./filteredRacers.selector');
 
@@ -18,7 +17,6 @@ import {
 } from '../racersFilter.fixtures';
 
 describe('getRacersNavigationSelector', () => {
-
   describe('when searchedWord empty', () => {
     const STATE = { racers: RACERS, racersFilter: RACERS_FILTER };
     const STATE_RACERS_EMPTY = { racers: NO_RACER, racersFilter: RACERS_FILTER };

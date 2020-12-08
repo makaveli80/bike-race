@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { reset } from 'redux-form';
 
-import { AddRacer, InputTextField, onSubmitSuccess } from './AddRacer';
+import { AddRacer, onSubmitSuccess } from './AddRacer';
 
 import {
   EXISTING_CATEGORIES,
