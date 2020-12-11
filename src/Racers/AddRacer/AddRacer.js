@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
 import { MdPersonAdd } from 'react-icons/md';
-import CreatableSelect from 'react-select/creatable';
 
 import './AddRacer.css';
 import TextField from './TextField/TextField';

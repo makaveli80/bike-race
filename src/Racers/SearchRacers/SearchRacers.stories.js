@@ -1,5 +1,5 @@
 import React from 'react';
-import { reduxForm, reducer as formReducer, Field } from 'redux-form';
+import { reduxForm, reducer as formReducer } from 'redux-form';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { storiesOf } from '@storybook/react';
@@ -18,7 +18,7 @@ const withReduxFormAndDevTools = (Story) => {
     <Provider store={store}>
       <div className="container mx-auto">
         <div className="flex flex-row">
-          <div className="w-1/4">
+          <div className="w-1/3">
             <Story />
           </div>
         </div>
@@ -32,6 +32,6 @@ const actions = {
   onChange: action('onChange')
 }
 
-storiesOf('SearchRacers', module)
+storiesOf('Racers/Search Racers/SearchRacers', module)
   .addDecorator(withReduxFormAndDevTools)
-  .add('normal', () => <SearchRacers {...actions}/>);
+  .add('default component', () => <SearchRacers {...actions}/>);

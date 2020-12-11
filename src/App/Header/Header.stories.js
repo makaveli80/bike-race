@@ -3,5 +3,5 @@ import { storiesOf } from '@storybook/react';
 
 import Header from './Header';
 
-storiesOf('Header', module)
-  .add('Fullscreen', () => <Header />);
+storiesOf('App/Header', module)
+  .add('default component', () => <Header />);

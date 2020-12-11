@@ -56,7 +56,7 @@ const propsWithError = {
   meta: { touched: true, error: 'La catégorie est requise' }
 }
 
-storiesOf('AutoCompleteField', module)
+storiesOf('Racers/Add Racer/AddRacer/AutoCompleteField', module)
   .addDecorator(withTemplate)
   .add('without error', () => <AutoCompleteField {...propsWithoutError}/>)
   .add('with default value', () => <AutoCompleteField {...propsWithDefaultValue}/>)

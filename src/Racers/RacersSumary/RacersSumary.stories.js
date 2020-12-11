@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
 import RacersSumary from './RacersSumary';
 
@@ -14,6 +13,6 @@ const withTemplate = (Story) => {
   );
 }
 
-storiesOf('RacersSumary', module)
+storiesOf('Racers/RacersSumary', module)
   .addDecorator(withTemplate)
-  .add('normal', () => <RacersSumary/>);
+  .add('default component', () => <RacersSumary/>);
