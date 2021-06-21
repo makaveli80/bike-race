@@ -19,10 +19,8 @@ import { deleteRacer } from './DeleteRacer/deleteRacer.reducer';
 
 import getFilteredRacersSelector from './FilterRacers/filteredRacers.selector';
 import getRacersNavigationSelector from './FilterRacers/racersNavigation.selector';
-import {
-  getExistingCategoriesSelector,
-  getExistingTeamsSelector
-} from './AddRacer/autoCompleteField.selector';
+import { getExistingCategoriesSelector } from './AddRacer/existingCategories.selector';
+import { getExistingTeamsSelector } from './AddRacer/existingteams.selector';
 
 export const Racers = ({
   addRacer,
