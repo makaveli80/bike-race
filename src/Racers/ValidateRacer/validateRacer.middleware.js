@@ -14,10 +14,10 @@ export const validateRacerError = (errors) => {
 
 export const validateRacerMiddleware = ({ dispatch }) => next => action => {
   if (_.get(action, 'meta.validateRacer')) {
-    const error = validateRacer(action.payload);
-    return _.isEmpty(error)
+    const errors = validateRacer(action.payload);
+    return _.isEmpty(errors)
       ? next(action)
-      : dispatch(validateRacerError(error));
+      : dispatch(validateRacerError(errors));
   }
   return next(action);
 };
