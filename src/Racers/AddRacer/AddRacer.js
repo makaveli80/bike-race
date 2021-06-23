@@ -53,6 +53,14 @@ export const AddRacer = ({
             formatCreateLabel={(inputValue) => `Créer l'équipe ${inputValue}`}/>
       </div>
 
+      <div className="racer-field">
+        <label htmlFor="trackingNumber" className="racer-field__label">
+          Numéro de dossard
+        </label>
+        <Field id="trackingNumber" name="trackingNumber" component={TextField}
+            placeholder="1"/>
+      </div>
+
       <button type="submit" className="submit-racer"
           disabled={invalid || submitting || pristine}>
         <MdPersonAdd className="submit-racer__icon" />
