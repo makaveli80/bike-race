@@ -1,4 +1,4 @@
-import { getExistingTeamsSelector } from './existingteams.selector';
+import { getExistingTeamsSelector } from './existingTeams.selector';
 
 import {
   RACERS,

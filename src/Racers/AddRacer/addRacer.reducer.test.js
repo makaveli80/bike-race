@@ -16,7 +16,10 @@ describe('addRacer', () => {
     expect(action).toEqual({
       type: ADD_RACER,
       payload: expect.anything(),
-      meta: {validateRacer: true}
+      meta: {
+        validateRacer: true,
+        validateTrackingNumber: true
+      }
     });
   });
 

@@ -12,9 +12,11 @@ export const TEAM_TURTLE_BIKE = 'Turtle Bike';
 export const TRACKING_NUMBER_1 = '1';
 export const TRACKING_NUMBER_12 = '12';
 export const TRACKING_NUMBER_19 = '19';
+export const TRACKING_NUMBER_22 = '22';
+export const TRACKING_NUMBER_29 = '29';
 
-export const NEW_RACER =                         { firstName: 'Bellard',  lastName: 'Romain',        category: CATEGORY_15_CA, team: TEAM_ST_AMAND, trackingNumber: TRACKING_NUMBER_1 };
-export const NEW_RACER_WITHOUT_TEAM =            { firstName: 'Bellette', lastName: 'Jean-Philippe', category: CATEGORY_30_SB, trackingNumber: TRACKING_NUMBER_12 };
+export const NEW_RACER =                         { firstName: 'Bellard',  lastName: 'Romain',        category: CATEGORY_15_CA, team: TEAM_ST_AMAND, trackingNumber: TRACKING_NUMBER_22 };
+export const NEW_RACER_WITHOUT_TEAM =            { firstName: 'Bellette', lastName: 'Jean-Philippe', category: CATEGORY_30_SB, trackingNumber: TRACKING_NUMBER_29 };
 export const NEW_RACER_WITHOUT_TRACKING_NUMBER = { firstName: 'Bialecki', lastName: 'Eddy',          category: CATEGORY_40_VA, team: TEAM_TURTLE_BIKE };
 
 export const RACER_1 = { id: 1, firstName: 'Jean-Luc',   lastName: 'Briois',     category: CATEGORY_40_VA, team: TEAM_DOULLENS, trackingNumber: TRACKING_NUMBER_1 };
@@ -44,3 +46,6 @@ export const EXISTING_CATEGORIES_LENGTH = EXISTING_CATEGORIES.length;
 
 export const EXISTING_TEAMS = [TEAM_DOULLENS, TEAM_AMIENS, TEAM_DEJANTES];
 export const EXISTING_TEAMS_LENGTH = EXISTING_TEAMS.length;
+
+export const EXISTING_TRACKING_NUMBERS = [TRACKING_NUMBER_1, TRACKING_NUMBER_12, TRACKING_NUMBER_19];
+export const EXISTING_TRACKING_NUMBERS_LENGTH = EXISTING_TRACKING_NUMBERS.length;

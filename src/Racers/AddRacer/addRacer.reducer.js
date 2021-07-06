@@ -8,7 +8,10 @@ export const addRacer = (racer) => {
   return {
     type: ADD_RACER,
     payload: racer,
-    meta: { validateRacer: true }
+    meta: {
+      validateRacer: true,
+      validateTrackingNumber: true
+    }
   };
 }
 
