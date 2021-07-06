@@ -96,7 +96,7 @@ describe('<Racers/>', () => {
   });
 
   describe('<ListRacers> interactions', () => {
-    it('should transmit "children" props to <ListRacers> component', () => {
+    it('should transmit <ShowRacer> "children" props to <ListRacers> component', () => {
       // when
       const racersProps = shallowComponent.find(ListRacers).first().prop('children');
       // then
