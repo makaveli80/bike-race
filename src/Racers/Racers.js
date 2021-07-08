@@ -21,7 +21,7 @@ import getFilteredRacersSelector from './FilterRacers/filteredRacers.selector';
 import getRacersNavigationSelector from './FilterRacers/racersNavigation.selector';
 import { getExistingCategoriesSelector } from './AddRacer/existingCategories.selector';
 import { getExistingTeamsSelector } from './AddRacer/existingteams.selector';
-import { getExistingTrackingNumbersSelector } from './AddRacer/existingTrackingNumbers.selector';
+import { getExistingRaceNumbersSelector } from './AddRacer/existingRaceNumbers.selector';
 
 export const Racers = ({
   addRacer,
@@ -33,7 +33,7 @@ export const Racers = ({
   deleteRacer,
   categories,
   teams,
-  trackingNumbers
+  raceNumbers
 }) => {
   const renderEachRacer = filteredRacers.map((racer) =>
     <ShowRacer key={racer.id}
@@ -52,7 +52,7 @@ export const Racers = ({
         <AddRacer
           categories={categories}
           teams={teams}
-          trackingNumbers={trackingNumbers}
+          raceNumbers={raceNumbers}
           onSubmit={(racer) => addRacer(racer)}
           />
       </div>
@@ -83,7 +83,7 @@ export const mapStateToProps = (state) => {
     racersNavigation: getRacersNavigationSelector(state),
     categories: getExistingCategoriesSelector(state),
     teams: getExistingTeamsSelector(state),
-    trackingNumbers: getExistingTrackingNumbersSelector(state)
+    raceNumbers: getExistingRaceNumbersSelector(state)
   }
 };
 

@@ -37,7 +37,7 @@
     @apply flex-none w-2/12;
   }
 
-  @element tracking-number {
+  @element race-number {
     @apply flex-none w-2/12;
   }
 

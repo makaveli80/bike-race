@@ -13,7 +13,7 @@ import {
   FILTERED_RACERS,
   EXISTING_CATEGORIES,
   EXISTING_TEAMS,
-  EXISTING_TRACKING_NUMBERS
+  EXISTING_RACE_NUMBERS
 } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
 
@@ -42,7 +42,7 @@ describe('<Racers/>', () => {
     racersNavigation: RACERS_NAVIGATION,
     categories: EXISTING_CATEGORIES,
     teams: EXISTING_TEAMS,
-    trackingNumbers: EXISTING_TRACKING_NUMBERS
+    raceNumbers: EXISTING_RACE_NUMBERS
   }
 
   beforeEach(() => {
@@ -82,11 +82,11 @@ describe('<Racers/>', () => {
       expect(teamsProps).toBeDefined();
     });
 
-    it('should transmit "trackingNumbers" props to <AddRacer> component', () => {
+    it('should transmit "raceNumbers" props to <AddRacer> component', () => {
       // when
-      const trackingNumbersProps = shallowComponent.find(AddRacer).first().prop('trackingNumbers');
+      const raceNumbersProps = shallowComponent.find(AddRacer).first().prop('raceNumbers');
       // then
-      expect(trackingNumbersProps).toBeDefined();
+      expect(raceNumbersProps).toBeDefined();
     });
 
     it('should launch an "addRacer" action when a "submit" event launched from component <AddRacer>', () => {

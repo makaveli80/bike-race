@@ -6,13 +6,13 @@ import './AddRacer.css';
 import TextField from './TextField/TextField';
 import AutoCompleteField from './AutoCompleteField/AutoCompleteField';
 import validateRacer from '../ValidateRacer/validateRacer';
-import validateUniquenessTrackingNumber from '../ValidateUniquenessTrackingNumber/validateUniquenessTrackingNumber';
+import validateUniquenessRaceNumber from '../ValidateUniquenessRaceNumber/validateUniquenessRaceNumber';
 
-const trackingNumberUniqueness = (value, values, props) => {
-  const errors = validateUniquenessTrackingNumber(props.trackingNumbers, value);
+const raceNumberUniqueness = (value, values, props) => {
+  const errors = validateUniquenessRaceNumber(props.raceNumbers, value);
   return _.isEmpty(errors)
     ? undefined
-    : errors.trackingNumber;
+    : errors.raceNumber;
 };
 
 export const AddRacer = ({
@@ -22,7 +22,7 @@ export const AddRacer = ({
   pristine,
   categories = [],
   teams = [],
-  trackingNumbers = []
+  raceNumbers = []
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -63,11 +63,11 @@ export const AddRacer = ({
       </div>
 
       <div className="racer-field">
-        <label htmlFor="trackingNumber" className="racer-field__label">
+        <label htmlFor="raceNumber" className="racer-field__label">
           Numéro de dossard
         </label>
-        <Field id="trackingNumber" name="trackingNumber" component={TextField}
-            placeholder="1" validate={trackingNumberUniqueness}/>
+        <Field id="raceNumber" name="raceNumber" component={TextField}
+            placeholder="1" validate={raceNumberUniqueness}/>
       </div>
 
       <button type="submit" className="submit-racer"

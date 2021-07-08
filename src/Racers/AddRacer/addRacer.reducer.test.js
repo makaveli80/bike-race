@@ -18,7 +18,7 @@ describe('addRacer', () => {
       payload: expect.anything(),
       meta: {
         validateRacer: true,
-        validateTrackingNumber: true
+        validateRaceNumber: true
       }
     });
   });

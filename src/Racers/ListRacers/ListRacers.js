@@ -18,7 +18,7 @@ const renderHeader = (
     <div className="header__name">Coureurs</div>
     <div className="header__team">Equipes</div>
     <div className="header__category">Catégories</div>
-    <div className="header__tracking-number">Dossards</div>
+    <div className="header__race-number">Dossards</div>
     <div className="header__actions">Actions</div>
   </div>
 );

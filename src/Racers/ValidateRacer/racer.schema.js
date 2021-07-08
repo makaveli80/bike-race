@@ -23,7 +23,7 @@ const teamMessages = {
   'string.min': 'L\'équipe doit avoir {#limit} caractères minimum'
 }
 
-const trackingNumberMessages = {
+const raceNumberMessages = {
   'string.base': 'Le numéro de dossard doit être du texte',
   'string.min': 'Le numéro de dossard doit avoir {#limit} caractères minimum'
 }
@@ -33,7 +33,7 @@ const racerSchema = Joi.object().keys({
   lastName: Joi.string().min(3).required().messages(lastNameMessages),
   category: Joi.string().min(3).required().messages(categoryMessages),
   team: Joi.string().min(3).messages(teamMessages),
-  trackingNumber: Joi.string().min(1).messages(trackingNumberMessages)
+  raceNumber: Joi.string().min(1).messages(raceNumberMessages)
 });
 
 export default racerSchema;
