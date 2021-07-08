@@ -7,13 +7,21 @@ export const TEAM_DOULLENS = 'Doullens RC';
 export const TEAM_AMIENS = 'Amiens C Team';
 export const TEAM_DEJANTES = 'Les Déjantés';
 export const TEAM_ST_AMAND = '59 St Amand';
+export const TEAM_TURTLE_BIKE = 'Turtle Bike';
 
-export const NEW_RACER =              { firstName: 'Bellard',  lastName: 'Romain',        category: CATEGORY_15_CA, team: TEAM_ST_AMAND };
-export const NEW_RACER_WITHOUT_TEAM = { firstName: 'Bellette', lastName: 'Jean-Philippe', category: CATEGORY_30_SB };
+export const RACE_NUMBER_1 = '1';
+export const RACE_NUMBER_12 = '12';
+export const RACE_NUMBER_19 = '19';
+export const RACE_NUMBER_22 = '22';
+export const RACE_NUMBER_29 = '29';
 
-export const RACER_1 = { id: 1, firstName: 'Jean-Luc',   lastName: 'Briois',     category: CATEGORY_40_VA, team: TEAM_DOULLENS };
-export const RACER_2 = { id: 2, firstName: 'Corentin',   lastName: 'Bachelet',   category: CATEGORY_20_SA };
-export const RACER_3 = { id: 3, firstName: 'Baillet',    lastName: 'Alexeandre', category: CATEGORY_30_SB, team: TEAM_AMIENS };
+export const NEW_RACER =                         { firstName: 'Bellard',  lastName: 'Romain',        category: CATEGORY_15_CA, team: TEAM_ST_AMAND, raceNumber: RACE_NUMBER_22 };
+export const NEW_RACER_WITHOUT_TEAM =            { firstName: 'Bellette', lastName: 'Jean-Philippe', category: CATEGORY_30_SB, raceNumber: RACE_NUMBER_29 };
+export const NEW_RACER_WITHOUT_RACE_NUMBER = { firstName: 'Bialecki', lastName: 'Eddy',          category: CATEGORY_40_VA, team: TEAM_TURTLE_BIKE };
+
+export const RACER_1 = { id: 1, firstName: 'Jean-Luc',   lastName: 'Briois',     category: CATEGORY_40_VA, team: TEAM_DOULLENS, raceNumber: RACE_NUMBER_1 };
+export const RACER_2 = { id: 2, firstName: 'Corentin',   lastName: 'Bachelet',   category: CATEGORY_20_SA, raceNumber: RACE_NUMBER_12 };
+export const RACER_3 = { id: 3, firstName: 'Baillet',    lastName: 'Alexeandre', category: CATEGORY_30_SB, team: TEAM_AMIENS, raceNumber: RACE_NUMBER_19 };
 export const RACER_4 = { id: 4, firstName: 'Clément',    lastName: 'Barde',      category: CATEGORY_40_VA, team: TEAM_DOULLENS };
 export const RACER_5 = { id: 5, firstName: 'Beauvisage', lastName: 'Romain',     category: CATEGORY_30_SB, team: TEAM_DEJANTES };
 
@@ -38,3 +46,6 @@ export const EXISTING_CATEGORIES_LENGTH = EXISTING_CATEGORIES.length;
 
 export const EXISTING_TEAMS = [TEAM_DOULLENS, TEAM_AMIENS, TEAM_DEJANTES];
 export const EXISTING_TEAMS_LENGTH = EXISTING_TEAMS.length;
+
+export const EXISTING_RACE_NUMBERS = [RACE_NUMBER_1, RACE_NUMBER_12, RACE_NUMBER_19];
+export const EXISTING_RACE_NUMBERS_LENGTH = EXISTING_RACE_NUMBERS.length;

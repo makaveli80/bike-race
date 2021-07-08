@@ -77,6 +77,12 @@ class ConfirmDeletionRacer extends React.Component {
 
     onDeleteRacer(racer);
   }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
 }
 
 export default ConfirmDeletionRacer;

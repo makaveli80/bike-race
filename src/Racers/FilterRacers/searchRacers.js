@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+const accentsRegex = /[\u0300-\u036f]/g;
+
 const searchRacers = (racers, searchedWord) => {
   const cleanedSearchedWord = cleanWordForSearch(searchedWord);
   const racersFilteredOnFirstName = _.filter(racers, filterByWordOnProperty(cleanedSearchedWord, 'firstName'));
@@ -15,7 +17,7 @@ const searchRacers = (racers, searchedWord) => {
 }
 
 function cleanWordForSearch(word) {
-  return word?.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+  return word?.normalize('NFD').replace(accentsRegex, '').toUpperCase();
 }
 
 function filterByWordOnProperty(word, property) {

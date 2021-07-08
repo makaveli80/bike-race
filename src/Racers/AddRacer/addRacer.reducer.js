@@ -8,25 +8,28 @@ export const addRacer = (racer) => {
   return {
     type: ADD_RACER,
     payload: racer,
-    meta: { validateRacer: true }
+    meta: {
+      validateRacer: true,
+      validateRaceNumber: true
+    }
   };
 }
 
 export const addRacerReduce = (racers, racer) => {
-  const ids = getIdsFromRacers(racers);
-  const highestId = getHighestId(ids);
+  const idsByOrderDesc = getIdsFromRacersByOrderDesc(racers);
+  const highestId = getFirstId(idsByOrderDesc);
   const racerToAdd = { ...racer, id: highestId + 1 };
 
   return [racerToAdd, ...racers];
 }
 
-function getIdsFromRacers(racers) {
+function getIdsFromRacersByOrderDesc(racers) {
   return _(racers)
     .map('id')
     .orderBy(_.identity, 'desc')
     .value();
 }
 
-function getHighestId(ids) {
+function getFirstId(ids) {
   return ids.length > 0 ? ids[0] : FIRST_ID;
 }

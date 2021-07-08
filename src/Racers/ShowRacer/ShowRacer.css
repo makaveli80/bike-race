@@ -7,11 +7,15 @@
   }
 
   @element team {
-    @apply flex-none w-3/12;
+    @apply flex-none w-2/12;
   }
 
   @element category {
-    @apply flex-none w-3/12;
+    @apply flex-none w-2/12;
+  }
+
+  @element race-number {
+    @apply flex-none w-2/12;
   }
 
   @element actions {

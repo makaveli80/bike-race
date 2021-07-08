@@ -7,11 +7,3 @@ export const getExistingCategoriesSelector = ({ racers }) => {
     .compact()
     .value();
 }
-
-export const getExistingTeamsSelector = ({ racers }) => {
-  return _(racers)
-    .map('team')
-    .uniq()
-    .compact()
-    .value();
-}

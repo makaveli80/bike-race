@@ -12,7 +12,8 @@ import ShowRacer from './ShowRacer/ShowRacer';
 import {
   FILTERED_RACERS,
   EXISTING_CATEGORIES,
-  EXISTING_TEAMS
+  EXISTING_TEAMS,
+  EXISTING_RACE_NUMBERS
 } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
 
@@ -40,7 +41,8 @@ describe('<Racers/>', () => {
     filteredRacers: FILTERED_RACERS,
     racersNavigation: RACERS_NAVIGATION,
     categories: EXISTING_CATEGORIES,
-    teams: EXISTING_TEAMS
+    teams: EXISTING_TEAMS,
+    raceNumbers: EXISTING_RACE_NUMBERS
   }
 
   beforeEach(() => {
@@ -80,6 +82,13 @@ describe('<Racers/>', () => {
       expect(teamsProps).toBeDefined();
     });
 
+    it('should transmit "raceNumbers" props to <AddRacer> component', () => {
+      // when
+      const raceNumbersProps = shallowComponent.find(AddRacer).first().prop('raceNumbers');
+      // then
+      expect(raceNumbersProps).toBeDefined();
+    });
+
     it('should launch an "addRacer" action when a "submit" event launched from component <AddRacer>', () => {
       // when
       shallowComponent.find(AddRacer).first().simulate('submit', {});
@@ -96,7 +105,7 @@ describe('<Racers/>', () => {
   });
 
   describe('<ListRacers> interactions', () => {
-    it('should transmit "children" props to <ListRacers> component', () => {
+    it('should transmit <ShowRacer> "children" props to <ListRacers> component', () => {
       // when
       const racersProps = shallowComponent.find(ListRacers).first().prop('children');
       // then

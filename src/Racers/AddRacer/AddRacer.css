@@ -1,5 +1,5 @@
 @block racer-field {
-  @apply mb-6;
+  @apply mb-2;
 
   @element label {
     @apply block;
