@@ -9,7 +9,8 @@ import AddRacer from './AddRacer';
 
 import {
   EXISTING_CATEGORIES,
-  EXISTING_TEAMS
+  EXISTING_TEAMS,
+  EXISTING_TRACKING_NUMBERS
 } from '../racers.fixtures';
 
 const withReduxFormAndDevTools = (Story) => {
@@ -34,7 +35,8 @@ const withReduxFormAndDevTools = (Story) => {
 
 const props = {
   categories: EXISTING_CATEGORIES,
-  teams: EXISTING_TEAMS
+  teams: EXISTING_TEAMS,
+  trackingNumbers: EXISTING_TRACKING_NUMBERS
 };
 
 const actions = {

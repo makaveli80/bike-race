@@ -12,7 +12,8 @@ import ShowRacer from './ShowRacer/ShowRacer';
 import {
   FILTERED_RACERS,
   EXISTING_CATEGORIES,
-  EXISTING_TEAMS
+  EXISTING_TEAMS,
+  EXISTING_TRACKING_NUMBERS
 } from './racers.fixtures';
 import { RACERS_NAVIGATION } from './racersFilter.fixtures';
 
@@ -40,7 +41,8 @@ describe('<Racers/>', () => {
     filteredRacers: FILTERED_RACERS,
     racersNavigation: RACERS_NAVIGATION,
     categories: EXISTING_CATEGORIES,
-    teams: EXISTING_TEAMS
+    teams: EXISTING_TEAMS,
+    trackingNumbers: EXISTING_TRACKING_NUMBERS
   }
 
   beforeEach(() => {
@@ -78,6 +80,13 @@ describe('<Racers/>', () => {
       const teamsProps = shallowComponent.find(AddRacer).first().prop('teams');
       // then
       expect(teamsProps).toBeDefined();
+    });
+
+    it('should transmit "trackingNumbers" props to <AddRacer> component', () => {
+      // when
+      const trackingNumbersProps = shallowComponent.find(AddRacer).first().prop('trackingNumbers');
+      // then
+      expect(trackingNumbersProps).toBeDefined();
     });
 
     it('should launch an "addRacer" action when a "submit" event launched from component <AddRacer>', () => {

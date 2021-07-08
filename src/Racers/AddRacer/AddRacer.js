@@ -6,6 +6,14 @@ import './AddRacer.css';
 import TextField from './TextField/TextField';
 import AutoCompleteField from './AutoCompleteField/AutoCompleteField';
 import validateRacer from '../ValidateRacer/validateRacer';
+import validateUniquenessTrackingNumber from '../ValidateUniquenessTrackingNumber/validateUniquenessTrackingNumber';
+
+const trackingNumberUniqueness = (value, values, props) => {
+  const errors = validateUniquenessTrackingNumber(props.trackingNumbers, value);
+  return _.isEmpty(errors)
+    ? undefined
+    : errors.trackingNumber;
+};
 
 export const AddRacer = ({
   handleSubmit,
@@ -13,7 +21,8 @@ export const AddRacer = ({
   submitting,
   pristine,
   categories = [],
-  teams = []
+  teams = [],
+  trackingNumbers = []
 }) => {
   return (
     <form onSubmit={handleSubmit}>
@@ -58,7 +67,7 @@ export const AddRacer = ({
           Numéro de dossard
         </label>
         <Field id="trackingNumber" name="trackingNumber" component={TextField}
-            placeholder="1"/>
+            placeholder="1" validate={trackingNumberUniqueness}/>
       </div>
 
       <button type="submit" className="submit-racer"
